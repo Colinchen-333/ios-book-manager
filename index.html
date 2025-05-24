@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumirain Studio - 点燃灵感，润泽成长</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+        }
+        .gradient-bg-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 30%, #000000 70%, #0a0a0a 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #E6C200 0%, #CC9500 30%, #E6C200 70%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gold-glow {
+            box-shadow: 0 0 40px rgba(230, 194, 0, 0.6), 0 0 80px rgba(230, 194, 0, 0.3), 0 0 120px rgba(230, 194, 0, 0.1);
+        }
+        .gold-glow-intense {
+            box-shadow: 0 0 50px rgba(230, 194, 0, 0.8), 0 0 100px rgba(230, 194, 0, 0.4), 0 0 150px rgba(230, 194, 0, 0.2);
+        }
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .card-shadow {
+            box-shadow: 0 8px 25px rgba(230, 194, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 15px 40px rgba(230, 194, 0, 0.25), 0 8px 15px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px);
+        }
+        .gradient-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+            border: 2px solid rgba(230, 194, 0, 0.5);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+                 .card-hover:hover {
+             border-color: rgba(230, 194, 0, 0.8);
+             transform: translateY(-2px);
+         }
+    </style>
+</head>
+<body class="bg-black text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-sm shadow-sm" style="border-bottom: 1px solid rgba(230, 194, 0, 0.2);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="images/lumirain-logo.png" alt="Lumirain Logo" class="w-8 h-8 rounded-lg mr-3">
+                    <h1 class="text-lg sm:text-xl font-bold" style="color: #E6C200;">Lumirain Studio</h1>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">首页</a>
+                        <a href="efficiency.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">七印</a>
+                        <a href="impact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">信息站</a>
+                        <a href="about.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">关于</a>
+                        <a href="contact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">联系</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500 p-2" style="color: #E6C200;">
+                        <span class="sr-only">Open main menu</span>
+                        <i id="menu-icon" class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 backdrop-blur-sm" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+                <a href="#home" class="text-gray-300 block px-3 py-2 text-base font-medium border-l-4 border-transparent" style="color: #E6C200; border-left-color: #E6C200;">首页</a>
+                <a href="efficiency.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">七印</a>
+                <a href="impact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">信息站</a>
+                <a href="about.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">关于</a>
+                <a href="contact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white py-20 px-4 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto text-center slide-in">
+            <div class="mb-8">
+                <img src="images/lumirain-logo.png" alt="Lumirain Studio Logo" class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-2xl shadow-lg" style="border: 2px solid rgba(230, 194, 0, 0.3);">
+            </div>
+            <h1 class="text-3xl sm:text-4xl md:text-7xl font-bold mb-6">
+                Hallo<br>
+                <span class="text-2xl sm:text-3xl md:text-5xl">Lumirain Studio</span><br>
+                <span class="text-xl sm:text-2xl md:text-3xl text-gradient">炬霖工作室</span>
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-4 text-gray-100">点燃灵感，润泽成长。</p>
+            <p class="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 text-gray-200">Ignite ideas, nourish growth.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4 sm:px-0">
+                <a href="https://apps.apple.com/us/app/%E4%B8%83%E5%8D%B0/id6670341351" target="_blank" class="text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all transform hover:scale-105 gold-glow text-center" style="background: linear-gradient(135deg, #E6C200, #CC9500);">
+                    立即下载七印
+                </a>
+                <a href="impact.html" class="border-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all transform hover:scale-105 text-center" style="border-color: #E6C200; color: #E6C200;" onmouseover="this.style.background='#E6C200'; this.style.color='black';" onmouseout="this.style.background='transparent'; this.style.color='#E6C200';">
+                    了解信息站
+                </a>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="animate-bounce">
+                <i class="fas fa-chevron-down text-2xl opacity-70"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars Section -->
+    <section class="py-20 px-4 gradient-bg-section">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-gradient">双支柱简介</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6 md:gap-12">
+                <!-- Efficiency Pillar -->
+                <div class="gradient-card card-hover p-6 md:p-8 rounded-2xl">
+                    <div class="flex items-center mb-4 md:mb-6">
+                        <img src="images/qiyin-icon.png" alt="七印图标" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mr-3 md:mr-4 shadow-sm">
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gradient">效率 · Efficiency</h3>
+                    </div>
+                    <p class="text-gray-200 text-base md:text-lg leading-relaxed">
+                        一分钟建好图书馆。七印图书管理器，用 OCR + 云同步，让碎片书单秒变数字藏书。
+                    </p>
+                    <a href="efficiency.html" class="inline-block mt-4 md:mt-6 font-semibold transition-all duration-300 text-gradient">
+                        了解更多 →
+                    </a>
+                </div>
+
+                <!-- Impact Pillar -->
+                <div class="gradient-card card-hover p-6 md:p-8 rounded-2xl">
+                    <div class="flex items-center mb-4 md:mb-6">
+                        <i class="fas fa-search text-2xl sm:text-3xl mr-3 md:mr-4 text-gradient"></i>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gradient">公益 · Impact</h3>
+                    </div>
+                    <p class="text-gray-200 text-base md:text-lg leading-relaxed">
+                        减少信息差，让资源触手可及。助残信息站把分散的政策信息、服务资源整合到一个地方，不再为"不知道去哪里找"而困扰。
+                    </p>
+                    <a href="impact.html" class="inline-block mt-4 md:mt-6 font-semibold transition-all duration-300 text-gradient">
+                        了解更多 →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Statement -->
+    <section class="py-20 px-4 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-xl sm:text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-gradient">"为什么我们存在？"三行宣言</h2>
+            
+            <div class="space-y-4 md:space-y-8">
+                <div class="flex items-center justify-center gradient-card p-4 md:p-6 rounded-xl">
+                    <i class="fas fa-fire text-xl md:text-2xl mr-3 md:mr-4 text-gradient flex-shrink-0"></i>
+                    <p class="text-base sm:text-lg md:text-xl text-gray-100">把日常动作压缩到 1 秒内，这是火。</p>
+                </div>
+                <div class="flex items-center justify-center gradient-card p-4 md:p-6 rounded-xl">
+                    <i class="fas fa-cloud-rain text-xl md:text-2xl mr-3 md:mr-4 text-gradient flex-shrink-0"></i>
+                    <p class="text-base sm:text-lg md:text-xl text-gray-100">让每个人都能按下同一个按钮，这是雨。</p>
+                </div>
+                <div class="flex items-center justify-center gradient-card p-4 md:p-6 rounded-xl" style="border-color: rgba(230, 194, 0, 0.8);">
+                    <i class="fas fa-yin-yang text-xl md:text-2xl mr-3 md:mr-4 text-gradient flex-shrink-0"></i>
+                    <p class="text-base sm:text-lg md:text-xl font-semibold text-gradient">火与雨同在，才叫 Lumirain。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 px-4" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" style="color: #E6C200;">Lumirain Studio</h3>
+                    <p class="text-gray-400">点燃灵感，润泽成长</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">产品</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="efficiency.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">七印图书管理器</a></li>
+                        <li><a href="impact.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">助残信息站</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">关于</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">团队介绍</a></li>
+                        <li><a href="contact.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">技术栈</h4>
+                    <p class="text-gray-400 text-sm">Swift · Astro · TailwindCSS<br>Python OCR · GitHub Actions</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 text-center text-gray-400" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+                <p>&copy; 2024 Lumirain Studio. Ignite | Nourish | Empower</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                // Toggle menu icon
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.className = 'fas fa-bars text-lg';
+                } else {
+                    menuIcon.className = 'fas fa-times text-lg';
+                }
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fas fa-bars text-lg';
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fas fa-bars text-lg';
+                });
+            });
+        }
+    </script>
+</body>
+</html> 

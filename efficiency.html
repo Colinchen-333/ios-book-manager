@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>七印图书管理器 · Qiyin App - Lumirain Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+        }
+        .gradient-bg-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 30%, #000000 70%, #0a0a0a 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #E6C200 0%, #CC9500 30%, #E6C200 70%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gold-glow {
+            box-shadow: 0 0 40px rgba(230, 194, 0, 0.6), 0 0 80px rgba(230, 194, 0, 0.3), 0 0 120px rgba(230, 194, 0, 0.1);
+        }
+        .gold-glow-intense {
+            box-shadow: 0 0 50px rgba(230, 194, 0, 0.8), 0 0 100px rgba(230, 194, 0, 0.4), 0 0 150px rgba(230, 194, 0, 0.2);
+        }
+        .gradient-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+            border: 2px solid rgba(230, 194, 0, 0.5);
+        }
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.2), 0 4px 6px -2px rgba(251, 191, 36, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-sm shadow-sm" style="border-bottom: 1px solid rgba(230, 194, 0, 0.2);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="images/lumirain-logo.png" alt="Lumirain Logo" class="w-8 h-8 rounded-lg mr-3">
+                    <a href="index.html" class="text-lg sm:text-xl font-bold" style="color: #E6C200;">Lumirain Studio</a>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">首页</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium" style="color: #E6C200;">七印</a>
+                        <a href="impact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">信息站</a>
+                        <a href="about.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">关于</a>
+                        <a href="contact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">联系</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500 p-2" style="color: #E6C200;">
+                        <span class="sr-only">Open main menu</span>
+                        <i id="menu-icon" class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 backdrop-blur-sm" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+                <a href="index.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">首页</a>
+                <a href="#" class="text-gray-300 block px-3 py-2 text-base font-medium border-l-4 border-transparent" style="color: #E6C200; border-left-color: #E6C200;">七印</a>
+                <a href="impact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">信息站</a>
+                <a href="about.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">关于</a>
+                <a href="contact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Full Screen -->
+    <section class="gradient-bg text-white min-h-screen flex items-center justify-center relative">
+        <div class="max-w-6xl mx-auto text-center px-4">
+            <div class="mb-6 md:mb-8">
+                <img src="images/qiyin-icon.png" alt="七印图标" class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto rounded-2xl shadow-lg">
+            </div>
+            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-6">七印图书管理器</h1>
+            <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-6 md:mb-8" style="color: #E6C200;">Qiyin App</h2>
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-gray-200 px-2">专为纸质书籍爱好者设计的强大工具</p>
+            
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-16 md:mb-20 px-4 sm:px-0">
+                <a href="https://apps.apple.com/us/app/%E4%B8%83%E5%8D%B0/id6670341351" target="_blank" class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:from-yellow-300 hover:to-yellow-500 transition-all transform hover:scale-105 gold-glow text-center" style="background: linear-gradient(135deg, #E6C200, #CC9500);">
+                    <i class="fab fa-apple mr-2"></i>App Store 下载
+                </a>
+                <a href="https://a.sufwz.com/#" target="_blank" class="border-2 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:text-black transition-all transform hover:scale-105 text-center" style="border-color: #E6C200; color: #E6C200;" onmouseover="this.style.background='#E6C200'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-globe mr-2"></i>访问官网
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
+            <div class="flex flex-col items-center text-center" style="color: #E6C200;">
+                <span class="text-xs sm:text-sm mb-2">向下滑动了解更多</span>
+                <i class="fas fa-chevron-down text-xl sm:text-2xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="py-20 px-4 bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <!-- App Icon -->
+                <div class="flex-shrink-0">
+                    <img src="images/qiyin-icon.png" alt="七印图标" class="w-32 h-32 md:w-48 md:h-48 rounded-3xl shadow-2xl" style="border: 2px solid rgba(230, 194, 0, 0.3);">
+                </div>
+                
+                <!-- Slogan -->
+                <div class="text-center md:text-left">
+                    <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
+                        开启智慧印记
+                    </h2>
+                    <p class="text-xl md:text-2xl text-gray-300">
+                        让知识管理成为一种艺术
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Description -->
+    <section class="py-20 px-4 gradient-bg-section">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gradient">产品介绍</h2>
+            
+            <div class="gradient-card backdrop-blur-sm rounded-2xl p-8">
+                <p class="text-lg text-gray-100 leading-relaxed mb-8">
+                    七印-图书管理器是一款强大的工具，专为纸质书籍爱好者设计，帮助用户高效地管理和分类自己的书籍收藏。无论你是想追踪自己的阅读进度，记录重要的阅读笔记，还是为每本书分配特定的类别，这款应用都能满足你的需求。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Features -->
+    <section class="py-20 px-4 bg-black">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 text-gradient">主要功能</h2>
+            <p class="text-center text-gray-400 mb-12 md:mb-16 text-base md:text-lg">专业的图书管理解决方案</p>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                    <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
+                        <i class="fas fa-books"></i>
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl mb-3 md:mb-4" style="color: #E6C200;">书籍管理</h3>
+                    <p class="text-gray-300 text-sm md:text-base">轻松录入书籍信息，包括书名、作者、出版社等，支持自定义分类。</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                    <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl mb-3 md:mb-4" style="color: #E6C200;">阅读进度跟踪</h3>
+                    <p class="text-gray-300 text-sm md:text-base">记录每本书的阅读进度，设置阅读目标，查看每本书的已阅读时长。</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                    <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
+                        <i class="fas fa-journal-whills"></i>
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl mb-3 md:mb-4" style="color: #E6C200;">阅读日志</h3>
+                    <p class="text-gray-300 text-sm md:text-base">记录每次的阅读时间和笔记，查看历史阅读记录，按日期进行整理和回顾。</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                    <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl mb-3 md:mb-4" style="color: #E6C200;">分类管理</h3>
+                    <p class="text-gray-300 text-sm md:text-base">为书籍分配不同的类别，如小说、历史、科技等，便于管理和查找。</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                    <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl mb-3 md:mb-4" style="color: #E6C200;">搜索功能</h3>
+                    <p class="text-gray-300 text-sm md:text-base">通过书名或作者进行搜索，快速定位书籍。</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                    <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
+                        <i class="fas fa-trash-restore"></i>
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl mb-3 md:mb-4" style="color: #E6C200;">垃圾桶</h3>
+                    <p class="text-gray-300 text-sm md:text-base">删除的书籍和文件夹会暂时存放在垃圾桶中，避免误删。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reading Mode Feature -->
+    <section class="py-20 px-4 bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gradient">特色功能：阅读模式</h2>
+            
+            <div class="bg-black/70 backdrop-blur-sm rounded-2xl p-8 mb-12" style="border: 1px solid rgba(230, 194, 0, 0.3);">
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-6" style="color: #E6C200;">
+                        <i class="fas fa-stopwatch"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4" style="color: #E6C200;">专注阅读体验</h3>
+                    <p class="text-lg text-gray-200 leading-relaxed">
+                        通过倒计时或正计时功能进行专注阅读，记录实际阅读时间。阅读模式会帮助你更好地规划阅读时间，提升阅读效率。
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-black/50 backdrop-blur-sm rounded-xl p-8" style="border: 1px solid rgba(230, 194, 0, 0.2);">
+                    <div class="text-4xl mb-4" style="color: #E6C200;">
+                        <i class="fas fa-hourglass-start"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4" style="color: #E6C200;">倒计时模式</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        设定一个预定的阅读时间（例如30分钟），应用会在时间到达时提醒你，这样你可以高效利用碎片时间进行阅读。
+                    </p>
+                </div>
+
+                <div class="bg-black/50 backdrop-blur-sm rounded-xl p-8" style="border: 1px solid rgba(230, 194, 0, 0.2);">
+                    <div class="text-4xl mb-4" style="color: #E6C200;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4" style="color: #E6C200;">正计时模式</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        让你自由阅读，应用会记录你实际花费的阅读时间，这对需要追踪和分析阅读习惯的用户非常有帮助。
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-black/50 backdrop-blur-sm rounded-xl p-8 mt-8" style="border: 1px solid rgba(230, 194, 0, 0.2);">
+                <h4 class="text-xl font-bold mb-4" style="color: #E6C200;">智能记录</h4>
+                <p class="text-gray-300 leading-relaxed">
+                    每次使用阅读模式时，应用会自动记录你的阅读时间，并生成详细的阅读日志。你可以随时回顾这些日志，了解自己的阅读节奏和进度。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Testimonials -->
+    <section class="py-20 px-4 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gradient">用户心声</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-gray-900 p-8 rounded-xl" style="border: 1px solid rgba(230, 194, 0, 0.2);">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background: #E6C200;">
+                            <span class="text-black font-bold">读</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color: #E6C200;">@读书菌</h4>
+                            <div style="color: #E6C200;">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-200 text-lg italic">"功能齐全，特别是阅读模式让我更专注了。"</p>
+                </div>
+
+                <div class="bg-gray-900 p-8 rounded-xl" style="border: 1px solid rgba(230, 194, 0, 0.2);">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background: #E6C200;">
+                            <span class="text-black font-bold">鱼</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" style="color: #E6C200;">@早起摸鱼人</h4>
+                            <div style="color: #E6C200;">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-200 text-lg italic">"阅读统计超详细，倒计时功能帮我养成了好习惯。"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg text-white py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8">开始你的数字图书管理之旅</h2>
+            <p class="text-xl mb-12 text-gray-200">加入万千用户，体验前所未有的阅读管理方式</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://apps.apple.com/us/app/%E4%B8%83%E5%8D%B0/id6670341351" target="_blank" class="text-black px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 gold-glow" style="background: linear-gradient(135deg, #E6C200, #CC9500);">
+                    <i class="fab fa-apple mr-2"></i>App Store 下载
+                </a>
+                <a href="https://a.sufwz.com/#" target="_blank" class="border-2 px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105" style="border-color: #E6C200; color: #E6C200;" onmouseover="this.style.background='#E6C200'; this.style.color='black';" onmouseout="this.style.background='transparent'; this.style.color='#E6C200';">
+                    <i class="fas fa-globe mr-2"></i>访问官网
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 px-4" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" style="color: #E6C200;">Lumirain Studio</h3>
+                    <p class="text-gray-400">点燃灵感，润泽成长</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">产品</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">七印图书管理器</a></li>
+                        <li><a href="impact.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">助残信息站</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">关于</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">团队介绍</a></li>
+                        <li><a href="contact.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">支持</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">帮助中心</a></li>
+                        <li><a href="#" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">用户手册</a></li>
+                        <li><a href="#" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">问题反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 text-center text-gray-400" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+                <p>&copy; 2024 Lumirain Studio. Ignite | Nourish | Empower</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                // Toggle menu icon
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.className = 'fas fa-bars text-lg';
+                } else {
+                    menuIcon.className = 'fas fa-times text-lg';
+                }
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fas fa-bars text-lg';
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fas fa-bars text-lg';
+                });
+            });
+        }
+    </script>
+</body>
+</html> 

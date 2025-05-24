@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - Lumirain Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+        }
+        .gradient-bg-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 30%, #000000 70%, #0a0a0a 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #E6C200 0%, #CC9500 30%, #E6C200 70%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gold-glow {
+            box-shadow: 0 0 40px rgba(230, 194, 0, 0.6), 0 0 80px rgba(230, 194, 0, 0.3), 0 0 120px rgba(230, 194, 0, 0.1);
+        }
+        .gold-glow-intense {
+            box-shadow: 0 0 50px rgba(230, 194, 0, 0.8), 0 0 100px rgba(230, 194, 0, 0.4), 0 0 150px rgba(230, 194, 0, 0.2);
+        }
+        .gradient-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+            border: 2px solid rgba(230, 194, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-sm shadow-sm" style="border-bottom: 1px solid rgba(230, 194, 0, 0.2);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="images/lumirain-logo.png" alt="Lumirain Logo" class="w-8 h-8 rounded-lg mr-3">
+                    <a href="index.html" class="text-lg sm:text-xl font-bold" style="color: #E6C200;">Lumirain Studio</a>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">首页</a>
+                        <a href="efficiency.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">七印</a>
+                        <a href="impact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">信息站</a>
+                        <a href="about.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">关于</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium" style="color: #E6C200;">联系</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500 p-2" style="color: #E6C200;">
+                        <span class="sr-only">Open main menu</span>
+                        <i id="menu-icon" class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 backdrop-blur-sm" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+                <a href="index.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">首页</a>
+                <a href="efficiency.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">七印</a>
+                <a href="impact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">信息站</a>
+                <a href="about.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">关于</a>
+                <a href="#" class="text-gray-300 block px-3 py-2 text-base font-medium border-l-4 border-transparent" style="color: #E6C200; border-left-color: #E6C200;">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16 sm:py-20 px-4 pt-28 sm:pt-32">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8">联系我们</h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-8 md:mb-12 text-gray-200">让我们一起点燃灵感，润泽成长</p>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="py-16 sm:py-20 px-4 gradient-bg-section">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-gradient">联系方式</h2>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="gradient-card p-6 md:p-8 rounded-xl text-center shadow-lg sm:col-span-2 lg:col-span-1">
+                    <div class="text-4xl md:text-5xl mb-4 md:mb-6 text-gradient">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4 text-gradient">邮箱联系</h3>
+                    <p class="text-gray-300 mb-4 md:mb-6 text-sm md:text-base">商务合作、技术咨询、意见反馈</p>
+                    <a href="mailto:colin13909007335@outlook.com" class="text-black px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 gold-glow text-xs sm:text-sm md:text-base" style="background: linear-gradient(135deg, #E6C200, #CC9500); word-break: break-all;">
+                        colin13909007335@outlook.com
+                    </a>
+                </div>
+
+                <div class="gradient-card p-6 md:p-8 rounded-xl text-center shadow-lg">
+                    <div class="text-4xl md:text-5xl mb-4 md:mb-6 text-gradient">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4 text-gradient">开源项目</h3>
+                    <p class="text-gray-300 mb-4 md:mb-6 text-sm md:text-base">查看我们的开源代码和贡献</p>
+                    <a href="https://github.com/Colinchen-333/Colinchen-" target="_blank" class="border-2 text-gradient px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base" style="border-color: #E6C200;">
+                        GitHub 主页
+                    </a>
+                </div>
+
+                <div class="gradient-card p-6 md:p-8 rounded-xl text-center shadow-lg sm:col-span-2 lg:col-span-1">
+                    <div class="text-4xl md:text-5xl mb-4 md:mb-6 text-gradient">
+                        <i class="fab fa-weixin"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4 text-gradient">微信联系</h3>
+                    <p class="text-gray-300 mb-4 md:mb-6 text-sm md:text-base">扫码或搜索微信号联系</p>
+                    <div class="text-black px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm md:text-base" style="background: linear-gradient(135deg, #E6C200, #CC9500);">
+                        colin13909007335
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Contact Info -->
+    <section class="py-20 px-4 bg-black">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8 text-gradient">开发者信息</h2>
+            <div class="bg-gray-900 rounded-2xl p-8" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-24 h-24 rounded-full flex items-center justify-center text-3xl font-bold text-black" style="background: linear-gradient(135deg, #E6C200, #CC9500);">
+                        C
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-bold mb-2" style="color: #E6C200;">Colin</h3>
+                        <p class="text-gray-300 mb-4">Lumirain Studio 创始人 · 高中生开发者</p>
+                        <div class="space-y-2 text-sm text-gray-400">
+                            <p><i class="fas fa-trophy mr-2" style="color: #E6C200;"></i>牛津编程挑战赛OUCC金奖获得者</p>
+                            <p><i class="fab fa-apple mr-2" style="color: #E6C200;"></i>WWDC Swift Student Challenge 获奖</p>
+                            <p><i class="fas fa-code mr-2" style="color: #E6C200;"></i>专注于 iOS 开发和产品设计</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 px-4" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400">&copy; 2024 Lumirain Studio. Ignite | Nourish | Empower</p>
+        </div>
+    </footer>
+
+    <script src="mobile-navigation.js"></script>
+</body>
+</html> 
