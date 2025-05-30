@@ -23,7 +23,7 @@ struct SettingsView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
-            .ignoresSafeArea()
+            .ignoresSafeArea(.all) // 忽略所有安全区域
             
             List {
                 // 数据管理部分
@@ -88,6 +88,7 @@ struct SettingsView: View {
                 )
             }
             .listStyle(InsetGroupedListStyle())
+            .background(Color.clear) // 设置列表背景为透明
             .onAppear {
                 // 设置列表背景为透明
                 UITableView.appearance().backgroundColor = .clear
@@ -103,10 +104,24 @@ struct SettingsView: View {
                 UINavigationBar.appearance().compactAppearance = appearance
                 UINavigationBar.appearance().scrollEdgeAppearance = appearance
                 
-                // 设置 TabBar 样式
+                // 设置 TabBar 样式为透明，与其他页面保持一致
                 let tabBarAppearance = UITabBarAppearance()
-                tabBarAppearance.configureWithDefaultBackground()
-                tabBarAppearance.backgroundColor = UIColor.systemBackground
+                tabBarAppearance.configureWithTransparentBackground()
+                tabBarAppearance.backgroundColor = .clear
+                
+                // 修改 TabBar 图标和文字颜色
+                let normalAttributes: [NSAttributedString.Key: Any] = [
+                    .foregroundColor: UIColor.white.withAlphaComponent(0.6)
+                ]
+                let selectedAttributes: [NSAttributedString.Key: Any] = [
+                    .foregroundColor: UIColor.white
+                ]
+                
+                tabBarAppearance.stackedLayoutAppearance.normal.titleTextAttributes = normalAttributes
+                tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedAttributes
+                tabBarAppearance.stackedLayoutAppearance.normal.iconColor = .white.withAlphaComponent(0.6)
+                tabBarAppearance.stackedLayoutAppearance.selected.iconColor = .white
+                
                 UITabBar.appearance().standardAppearance = tabBarAppearance
                 if #available(iOS 15.0, *) {
                     UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance

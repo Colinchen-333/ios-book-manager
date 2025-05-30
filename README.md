@@ -73,7 +73,7 @@ A powerful iOS application that helps users better manage and track their readin
 
 1. 克隆此仓库到本地 / Clone this repository to local
 ```bash
-git clone https://github.com/your-username/BookManager.git
+git clone https://github.com/Colinchen-333/ios-book-manager.git
 ```
 
 2. 使用Xcode打开项目文件 `图书管理器.xcodeproj` / Open project file with Xcode
