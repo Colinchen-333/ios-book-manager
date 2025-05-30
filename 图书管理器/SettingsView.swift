@@ -25,111 +25,99 @@ struct SettingsView: View {
             )
             .ignoresSafeArea(.all) // 忽略所有安全区域
             
-            List {
-                // 数据管理部分
-                Section {
-                    DataManagementRow(
-                        icon: "arrow.clockwise.circle.fill",
-                        title: "恢复本地数据",
-                        subtitle: "从本地存储恢复之前的数据",
-                        action: { showRestoreAlert = true }
-                    )
+            ScrollView {
+                LazyVStack(spacing: 20) {
+                    // 数据管理部分
+                    VStack(spacing: 0) {
+                        // 分组标题
+                        HStack {
+                            Image(systemName: "externaldrive.fill")
+                                .foregroundColor(.white)
+                                .font(.system(size: 18, weight: .semibold))
+                            Text("数据管理")
+                                .foregroundColor(.white)
+                                .font(.system(size: 18, weight: .bold))
+                            Spacer()
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 8)
+                        
+                        // 选项
+                        VStack(spacing: 1) {
+                            Button(action: { showRestoreAlert = true }) {
+                                SettingRowView(
+                                    icon: "arrow.clockwise.circle.fill",
+                                    title: "恢复本地数据",
+                                    subtitle: "从本地存储恢复之前的数据"
+                                )
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            
+                            NavigationLink(destination: DebugView(bookManager: bookManager)) {
+                                SettingRowView(
+                                    icon: "doc.text.magnifyingglass",
+                                    title: "数据状态",
+                                    subtitle: "查看应用数据详细信息"
+                                )
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.white.opacity(0.85))
+                                .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                        )
+                        .padding(.horizontal, 16)
+                    }
                     
-                    NavigationLink(destination: DebugView(bookManager: bookManager)) {
-                        SettingRow(
-                            icon: "doc.text.magnifyingglass",
-                            title: "数据状态",
-                            subtitle: "查看应用数据详细信息"
+                    // 应用信息部分
+                    VStack(spacing: 0) {
+                        // 分组标题
+                        HStack {
+                            Image(systemName: "app.badge.fill")
+                                .foregroundColor(.white)
+                                .font(.system(size: 18, weight: .semibold))
+                            Text("应用信息")
+                                .foregroundColor(.white)
+                                .font(.system(size: 18, weight: .bold))
+                            Spacer()
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 8)
+                        
+                        // 选项
+                        Button(action: { isAboutSoftwarePresented = true }) {
+                            SettingRowView(
+                                icon: "info.circle.fill",
+                                title: "关于图书管理器",
+                                subtitle: "版本 2.1.0"
+                            )
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.white.opacity(0.85))
+                                .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
                         )
+                        .padding(.horizontal, 16)
                     }
-                } header: {
-                    HStack {
-                        Image(systemName: "externaldrive.fill")
-                            .foregroundColor(.white)
-                            .font(.system(size: 18, weight: .semibold))
-                        Text("数据管理")
-                            .foregroundColor(.white)
-                            .font(.system(size: 18, weight: .bold))
-                    }
-                    .textCase(nil)
-                    .padding(.bottom, 8)
                 }
-                .listRowBackground(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.white.opacity(0.8))
-                        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
-                )
-                
-                // 关于软件
-                Section {
-                    Button(action: { isAboutSoftwarePresented = true }) {
-                        SettingRow(
-                            icon: "info.circle.fill",
-                            title: "关于图书管理器",
-                            subtitle: "版本 2.1.0"
-                        )
-                    }
-                } header: {
-                    HStack {
-                        Image(systemName: "app.badge.fill")
-                            .foregroundColor(.white)
-                            .font(.system(size: 18, weight: .semibold))
-                        Text("应用信息")
-                            .foregroundColor(.white)
-                            .font(.system(size: 18, weight: .bold))
-                    }
-                    .textCase(nil)
-                    .padding(.bottom, 8)
-                }
-                .listRowBackground(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.white.opacity(0.8))
-                        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
-                )
-            }
-            .listStyle(InsetGroupedListStyle())
-            .background(Color.clear) // 设置列表背景为透明
-            .onAppear {
-                // 设置列表背景为透明
-                UITableView.appearance().backgroundColor = .clear
-                UITableView.appearance().separatorColor = .clear
-                
-                // 设置导航栏样式
-                let appearance = UINavigationBarAppearance()
-                appearance.configureWithTransparentBackground()
-                appearance.backgroundColor = .clear
-                appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-                appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-                
-                UINavigationBar.appearance().standardAppearance = appearance
-                UINavigationBar.appearance().compactAppearance = appearance
-                UINavigationBar.appearance().scrollEdgeAppearance = appearance
-                
-                // 设置 TabBar 样式为透明，与其他页面保持一致
-                let tabBarAppearance = UITabBarAppearance()
-                tabBarAppearance.configureWithTransparentBackground()
-                tabBarAppearance.backgroundColor = .clear
-                
-                // 修改 TabBar 图标和文字颜色
-                let normalAttributes: [NSAttributedString.Key: Any] = [
-                    .foregroundColor: UIColor.white.withAlphaComponent(0.6)
-                ]
-                let selectedAttributes: [NSAttributedString.Key: Any] = [
-                    .foregroundColor: UIColor.white
-                ]
-                
-                tabBarAppearance.stackedLayoutAppearance.normal.titleTextAttributes = normalAttributes
-                tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedAttributes
-                tabBarAppearance.stackedLayoutAppearance.normal.iconColor = .white.withAlphaComponent(0.6)
-                tabBarAppearance.stackedLayoutAppearance.selected.iconColor = .white
-                
-                UITabBar.appearance().standardAppearance = tabBarAppearance
-                if #available(iOS 15.0, *) {
-                    UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-                }
+                .padding(.top, 20)
             }
         }
         .navigationBarTitle("设置", displayMode: .inline)
+        .onAppear {
+            // 只为导航栏设置样式
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            appearance.backgroundColor = .clear
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().compactAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
         .sheet(isPresented: $isAboutSoftwarePresented) {
             AboutSoftwareView()
                 .transition(.opacity)
@@ -194,6 +182,38 @@ struct SectionHeader: View {
     }
 }
 
+struct SettingRowView: View {
+    let icon: String
+    let title: String
+    let subtitle: String
+    
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: icon)
+                .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.7)) // 深蓝色图标
+                .imageScale(.large)
+                .frame(width: 30)
+            
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.system(size: 17, weight: .medium))
+                    .foregroundColor(Color.black.opacity(0.85)) // 更深的文字颜色
+                Text(subtitle)
+                    .font(.system(size: 14))
+                    .foregroundColor(Color.black.opacity(0.6)) // 副标题颜色
+            }
+            
+            Spacer()
+            
+            Image(systemName: "chevron.right")
+                .foregroundColor(Color.black.opacity(0.4))
+                .font(.system(size: 14, weight: .semibold))
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal, 16)
+    }
+}
+
 struct SettingRow: View {
     let icon: String
     let title: String
@@ -223,20 +243,6 @@ struct SettingRow: View {
         }
         .padding(.vertical, 8)
         .padding(.horizontal, 4)
-    }
-}
-
-struct DataManagementRow: View {
-    let icon: String
-    let title: String
-    let subtitle: String
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            SettingRow(icon: icon, title: title, subtitle: subtitle)
-        }
-        .buttonStyle(PlainButtonStyle())
     }
 }
 
