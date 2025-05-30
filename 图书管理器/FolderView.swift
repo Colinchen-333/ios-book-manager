@@ -66,18 +66,16 @@ struct FolderView: View {
                     .padding(.vertical, 4)
                     .buttonStyle(PlainButtonStyle())
                     .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
-                    .swipeActions {
-                        Button(role: .destructive) {
+                    .contextMenu {
+                        Button(action: {
                             deleteBook(at: index)
-                        } label: {
+                        }) {
                             Label("删除", systemImage: "trash")
                         }
                     }
                 }
             }
             .listStyle(InsetGroupedListStyle())
-            .scrollContentBackground(.hidden)
         }
         .navigationTitle(folder.name)
         .navigationBarItems(trailing: Button(action: {

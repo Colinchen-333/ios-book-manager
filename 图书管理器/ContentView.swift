@@ -655,8 +655,9 @@ struct ContentView: View {
                     Label(folder.isPinned ? "取消置顶" : "置顶", 
                           systemImage: folder.isPinned ? "pin.slash" : "pin")
                 }
-                Button(role: .destructive, action: deleteAction) {
+                Button(action: deleteAction) {
                     Label("删除", systemImage: "trash")
+                        .foregroundColor(.red)
                 }
             }
         }
@@ -710,7 +711,7 @@ struct ContentView: View {
             )
             .onTapGesture(perform: tapAction)
             .contextMenu {
-                Button(role: .destructive, action: deleteAction) {
+                Button(action: deleteAction) {
                     Label("删除", systemImage: "trash")
                 }
             }
@@ -934,10 +935,10 @@ struct ContentView: View {
                                 .cornerRadius(10)
                                 .shadow(radius: 2)
                                 .padding(.bottom)
-                                .swipeActions {
-                                    Button(role: .destructive) {
+                                .contextMenu {
+                                    Button(action: {
                                         deleteLog(book, log)
-                                    } label: {
+                                    }) {
                                         Label("删除", systemImage: "trash")
                                     }
                                 }

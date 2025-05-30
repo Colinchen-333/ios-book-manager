@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct FeatureTourView: View {
-    @Environment(\.dismiss) private var dismiss
     @Binding var hasCompletedOnboarding: Bool
     @State private var currentPage = 0
     @State private var isFinishing = false
@@ -169,7 +168,6 @@ private struct FeatureCard: View {
                         .repeatForever(autoreverses: true),
                     value: isAnimating
                 )
-                .symbolRenderingMode(.hierarchical)
             
             // 标题
             Text(feature.title)

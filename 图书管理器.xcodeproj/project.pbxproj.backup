@@ -11,7 +11,9 @@
 		C72C50812C82F60000E60274 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72C50802C82F60000E60274 /* OnboardingView.swift */; };
 		C72C50832C82FA1600E60274 /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72C50822C82FA1600E60274 /* Trash.swift */; };
 		C732D7652C7CE9160058DB44 /* AddReadingLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732D7642C7CE9160058DB44 /* AddReadingLogView.swift */; };
+		C732D7672C7CE9240058DB44 /* AddReadingLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732D7662C7CE9240058DB44 /* AddReadingLogView.swift */; };
 		C732D7C12C820E7C0058DB44 /* ReadingModeGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732D7C02C820E7C0058DB44 /* ReadingModeGuideView.swift */; };
+		C73C1D502C83136B005CD238 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73C1D4F2C83136B005CD238 /* Assets.xcassets */; };
 		C7B29D982C79B83E00A458ED /* _____App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B29D972C79B83E00A458ED /* _____App.swift */; };
 		C7B29D9A2C79B83E00A458ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B29D992C79B83E00A458ED /* ContentView.swift */; };
 		C7B29D9C2C79B83F00A458ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B29D9B2C79B83F00A458ED /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		C732D7642C7CE9160058DB44 /* AddReadingLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReadingLogView.swift; sourceTree = "<group>"; };
 		C732D7662C7CE9240058DB44 /* AddReadingLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReadingLogView.swift; sourceTree = "<group>"; };
 		C732D7C02C820E7C0058DB44 /* ReadingModeGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingModeGuideView.swift; sourceTree = "<group>"; };
+		C73C1D4F2C83136B005CD238 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C73C1D512C83204D005CD238 /* ------Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "------Info.plist"; sourceTree = SOURCE_ROOT; };
 		C73C1D522C832218005CD238 /* 图书管理器Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "图书管理器Release.entitlements"; sourceTree = "<group>"; };
 		C7B29D942C79B83E00A458ED /* 图书管理器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "图书管理器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B29D972C79B83E00A458ED /* _____App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_____App.swift"; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		C7B29D8B2C79B83E00A458ED = {
 			isa = PBXGroup;
 			children = (
+				C72C50822C82FA1600E60274 /* Trash.swift */,
 				C7B29D962C79B83E00A458ED /* 图书管理器 */,
 				C7B29DA72C79B83F00A458ED /* 图书管理器Tests */,
 				C7B29DB12C79B83F00A458ED /* 图书管理器UITests */,
@@ -133,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				C73C1D522C832218005CD238 /* 图书管理器Release.entitlements */,
+				C73C1D512C83204D005CD238 /* ------Info.plist */,
 				C72C50802C82F60000E60274 /* OnboardingView.swift */,
 				C7B29D972C79B83E00A458ED /* _____App.swift */,
 				C7B29DC12C79B88200A458ED /* Folder.swift */,
@@ -149,10 +155,10 @@
 				C7B29DCB2C79B93A00A458ED /* BookManager.swift */,
 				C7B29DF32C7B9AA000A458ED /* ReadingModeView.swift */,
 				C732D7C02C820E7C0058DB44 /* ReadingModeGuideView.swift */,
+				C732D7662C7CE9240058DB44 /* AddReadingLogView.swift */,
 				C732D7642C7CE9160058DB44 /* AddReadingLogView.swift */,
 				C7B29DF72C7B9C8300A458ED /* AppDelegate.swift */,
 				3B2186062D511B4F0080CC4B /* FeatureTourView.swift */,
-				C72C50822C82FA1600E60274 /* Trash.swift */,
 				C7B29D9B2C79B83F00A458ED /* Assets.xcassets */,
 				C7B29D9D2C79B83F00A458ED /* Preview Content */,
 			);
@@ -163,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				C7B29D9E2C79B83F00A458ED /* Preview Assets.xcassets */,
+				C73C1D4F2C83136B005CD238 /* Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -289,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7B29D9F2C79B83F00A458ED /* Preview Assets.xcassets in Resources */,
+				C73C1D502C83136B005CD238 /* Assets.xcassets in Resources */,
 				C7B29D9C2C79B83F00A458ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +329,7 @@
 				C7B29DFE2C7C5AF200A458ED /* BookPickerView.swift in Sources */,
 				C7B29DCE2C79BAE700A458ED /* ImagePicker.swift in Sources */,
 				C732D7652C7CE9160058DB44 /* AddReadingLogView.swift in Sources */,
+				C732D7672C7CE9240058DB44 /* AddReadingLogView.swift in Sources */,
 				C7B29DF82C7B9C8300A458ED /* AppDelegate.swift in Sources */,
 				C7B29DF42C7B9AA000A458ED /* ReadingModeView.swift in Sources */,
 				C7B29DF22C7B997C00A458ED /* ReadingLog .swift in Sources */,
@@ -499,20 +508,6 @@
 				DEVELOPMENT_ASSET_PATHS = "\"图书管理器/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bookmanager.ios";
-				PRODUCT_NAME = "图书管理器";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -526,20 +521,6 @@
 				DEVELOPMENT_ASSET_PATHS = "\"图书管理器/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bookmanager.ios";
-				PRODUCT_NAME = "图书管理器";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

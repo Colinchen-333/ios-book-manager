@@ -18,8 +18,10 @@ struct Folder: Identifiable, Codable, Hashable {
 
     // 获取书籍的绑定（如果在外部代码中有这种需求）
     func binding(for book: Book, in folders: Binding<[Folder]>) -> Binding<Book>? {
-        guard let folderIndex = folders.wrappedValue.firstIndex(where: { $0.id == self.id }),
-              let bookIndex = folders[folderIndex].books.firstIndex(where: { $0.id == book.id }) else {
+        guard let folderIndex = folders.wrappedValue.firstIndex(where: { $0.id == self.id }) else {
+            return nil
+        }
+        guard let bookIndex = folders.wrappedValue[folderIndex].books.firstIndex(where: { $0.id == book.id }) else {
             return nil
         }
         return folders[folderIndex].books[bookIndex]

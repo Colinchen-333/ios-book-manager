@@ -46,14 +46,19 @@ struct SettingsView: View {
                     HStack {
                         Image(systemName: "externaldrive.fill")
                             .foregroundColor(.white)
+                            .font(.system(size: 18, weight: .semibold))
                         Text("数据管理")
                             .foregroundColor(.white)
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 18, weight: .bold))
                     }
                     .textCase(nil)
                     .padding(.bottom, 8)
                 }
-                .listRowBackground(Color.white.opacity(0.6))
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.white.opacity(0.8))
+                        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                )
                 
                 // 关于软件
                 Section {
@@ -68,17 +73,21 @@ struct SettingsView: View {
                     HStack {
                         Image(systemName: "app.badge.fill")
                             .foregroundColor(.white)
+                            .font(.system(size: 18, weight: .semibold))
                         Text("应用信息")
                             .foregroundColor(.white)
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 18, weight: .bold))
                     }
                     .textCase(nil)
                     .padding(.bottom, 8)
                 }
-                .listRowBackground(Color.white.opacity(0.6))
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.white.opacity(0.8))
+                        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                )
             }
             .listStyle(InsetGroupedListStyle())
-            .scrollContentBackground(.hidden)
             .onAppear {
                 // 设置列表背景为透明
                 UITableView.appearance().backgroundColor = .clear
@@ -110,25 +119,31 @@ struct SettingsView: View {
                 .transition(.opacity)
                 .animation(.easeInOut, value: isAboutSoftwarePresented)
         }
-        .alert("确认恢复数据", isPresented: $showRestoreAlert) {
-            Button("取消", role: .cancel) { }
-            Button("确认恢复") {
-                restoreLocalData()
-            }
-        } message: {
-            Text("这将尝试恢复本地存储的数据，是否继续？")
+        .alert(isPresented: $showRestoreAlert) {
+            Alert(
+                title: Text("确认恢复数据"),
+                message: Text("这将尝试恢复本地存储的数据，是否继续？"),
+                primaryButton: .destructive(Text("确认恢复")) {
+                    restoreLocalData()
+                },
+                secondaryButton: .cancel(Text("取消"))
+            )
         }
-        .alert("恢复结果", isPresented: $showRestoreResultAlert) {
-            Button("确定", role: .cancel) { }
-        } message: {
-            switch restoreResult {
-            case .success(let count):
-                Text("成功恢复 \(count) 个文件夹的数据")
-            case .failure(let error):
-                Text("恢复失败：\(error)")
-            case .none:
-                Text("")
-            }
+        .alert(isPresented: $showRestoreResultAlert) {
+            Alert(
+                title: Text("恢复结果"),
+                message: Text({
+                    switch restoreResult {
+                    case .success(let count):
+                        return "成功恢复 \(count) 个文件夹的数据"
+                    case .failure(let error):
+                        return "恢复失败：\(error)"
+                    case .none:
+                        return ""
+                    }
+                }()),
+                dismissButton: .default(Text("确定"))
+            )
         }
     }
     
@@ -153,10 +168,10 @@ struct SectionHeader: View {
     var body: some View {
         HStack(spacing: 8) {
             Image(systemName: icon)
-                .foregroundColor(.gray)
+                .foregroundColor(.white)
                 .imageScale(.small)
             Text(title)
-                .foregroundColor(.gray)
+                .foregroundColor(.white)
         }
         .textCase(nil)
         .font(.headline)
@@ -171,26 +186,27 @@ struct SettingRow: View {
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: icon)
-                .foregroundColor(.blue)
+                .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.7)) // 深蓝色图标
                 .imageScale(.large)
                 .frame(width: 30)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
-                    .font(.system(size: 17))
-                    .foregroundColor(.primary)
+                    .font(.system(size: 17, weight: .medium))
+                    .foregroundColor(Color.black.opacity(0.85)) // 更深的文字颜色
                 Text(subtitle)
                     .font(.system(size: 14))
-                    .foregroundColor(.secondary)
+                    .foregroundColor(Color.black.opacity(0.6)) // 副标题颜色
             }
             
             Spacer()
             
             Image(systemName: "chevron.right")
-                .foregroundColor(.gray)
+                .foregroundColor(Color.black.opacity(0.4))
                 .font(.system(size: 14, weight: .semibold))
         }
-        .padding(.vertical, 4)
+        .padding(.vertical, 8)
+        .padding(.horizontal, 4)
     }
 }
 
@@ -204,6 +220,7 @@ struct DataManagementRow: View {
         Button(action: action) {
             SettingRow(icon: icon, title: title, subtitle: subtitle)
         }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
@@ -230,33 +247,38 @@ struct AboutSoftwareView: View {
                     Button(action: { presentationMode.wrappedValue.dismiss() }) {
                         Image(systemName: "xmark.circle.fill")
                             .font(.title)
-                            .foregroundColor(.gray)
-                            .opacity(0.7)
+                            .foregroundColor(.white.opacity(0.8))
                     }
                     .padding()
                 }
                 
                 // 应用图标
-                Image("photo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 120)
-                    .clipShape(RoundedRectangle(cornerRadius: 25))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(Color.white.opacity(0.2), lineWidth: 1)
-                    )
-                    .shadow(color: Color.black.opacity(0.2), radius: 15, x: 0, y: 5)
+                VStack {
+                    Image(systemName: "books.vertical.fill")
+                        .font(.system(size: 80))
+                        .foregroundColor(.white)
+                        .background(
+                            Circle()
+                                .fill(Color.white.opacity(0.2))
+                                .frame(width: 120, height: 120)
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(Color.white.opacity(0.3), lineWidth: 2)
+                        )
+                        .shadow(color: Color.black.opacity(0.2), radius: 15, x: 0, y: 5)
+                }
                 
                 // 应用信息
                 VStack(spacing: 15) {
                     Text("图书管理器")
                         .font(.system(size: 36, weight: .bold))
-                        .foregroundColor(.primary)
+                        .foregroundColor(.white)
                     
                     Text("版本 2.1.0")
                         .font(.system(size: 17))
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.white.opacity(0.8))
                 }
                 
                 Spacer()
@@ -299,33 +321,44 @@ struct DebugView: View {
             List {
                 Section(header: Text("数据统计")
                     .foregroundColor(.white)
-                    .font(.system(size: 20, weight: .bold))) {
+                    .font(.system(size: 18, weight: .bold))) {
                     Text("文件夹总数：\(bookManager.folders.count)")
-                        .foregroundColor(.primary)
+                        .foregroundColor(.black.opacity(0.85))
+                        .font(.system(size: 16, weight: .medium))
                     Text("书籍总数：\(bookManager.folders.flatMap { $0.books }.count)")
-                        .foregroundColor(.primary)
+                        .foregroundColor(.black.opacity(0.85))
+                        .font(.system(size: 16, weight: .medium))
                 }
-                .listRowBackground(Color.white.opacity(0.6))
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.white.opacity(0.8))
+                        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                )
                 
                 Section(header: Text("文件夹详情")
                     .foregroundColor(.white)
-                    .font(.system(size: 20, weight: .bold))) {
+                    .font(.system(size: 18, weight: .bold))) {
                     ForEach(bookManager.folders) { folder in
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 4) {
                             Text("📁 \(folder.name)")
                                 .font(.headline)
-                                .foregroundColor(.primary)
+                                .foregroundColor(.black.opacity(0.85))
                             Text("包含 \(folder.books.count) 本书")
                                 .font(.subheadline)
-                                .foregroundColor(.primary)
+                                .foregroundColor(.black.opacity(0.6))
                         }
+                        .padding(.vertical, 4)
                     }
                 }
-                .listRowBackground(Color.white.opacity(0.6))
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.white.opacity(0.8))
+                        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                )
                 
                 Section(header: Text("本地存储")
                     .foregroundColor(.white)
-                    .font(.system(size: 20, weight: .bold))) {
+                    .font(.system(size: 18, weight: .bold))) {
                     Button("打印存储路径") {
                         if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
                             print("📂 文档目录：\(path)")
@@ -338,12 +371,16 @@ struct DebugView: View {
                             }
                         }
                     }
-                    .foregroundColor(.primary)
+                    .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.7))
+                    .font(.system(size: 16, weight: .medium))
                 }
-                .listRowBackground(Color.white.opacity(0.6))
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.white.opacity(0.8))
+                        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                )
             }
             .listStyle(InsetGroupedListStyle())
-            .scrollContentBackground(.hidden)
         }
         .navigationTitle("调试信息")
     }
@@ -401,11 +438,11 @@ extension View {
     func customSectionHeader(_ title: String, icon: String) -> some View {
         HStack {
             Image(systemName: icon)
-                .foregroundColor(.gray)
-                .font(.system(size: 22))
+                .foregroundColor(.white)
+                .font(.system(size: 18, weight: .semibold))
             Text(title)
-                .foregroundColor(.gray)
-                .font(.system(size: 22, weight: .bold))
+                .foregroundColor(.white)
+                .font(.system(size: 18, weight: .bold))
             Spacer()
         }
         .padding(.vertical, 8)

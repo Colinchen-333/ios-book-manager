@@ -9,13 +9,13 @@ struct BookDetailView: View {
     @State private var editedBook: Book
     @State private var selectedCategory: String = ""
     @State private var isShowingReadingLog = false
+    @State private var isShowingAddReadingLog = false
     @State private var isShowingReadingMode = false
     @State private var selectedBook: Book?
     @State private var selectedFolder: Folder?
     @State private var showDeleteConfirmation = false
     @State private var logToDelete: ReadingLog? = nil
     @State private var isSaving = false
-    @State private var isPresentingView = false
     @Environment(\.presentationMode) var presentationMode
     
     let categories = ["小说", "非小说", "科幻", "历史", "传记", "自助", "教育", "艺术", "哲学", "宗教", "科技", "旅行", "烹饪", "健康", "儿童"]
@@ -38,16 +38,11 @@ struct BookDetailView: View {
                     .cornerRadius(10)
                     .shadow(radius: 5)
             } else {
-                ZStack {
-                    Rectangle()
-                        .fill(Color.gray)
-                        .frame(height: 200)
-                        .cornerRadius(10)
-                        .shadow(radius: 5)
-                    Text("暂无封面")
-                        .foregroundColor(.white)
-                        .font(.headline)
-                }
+                Rectangle()
+                    .fill(Color.gray)
+                    .frame(height: 200)
+                    .cornerRadius(10)
+                    .shadow(radius: 5)
             }
             
             // 书籍详细信息
@@ -99,7 +94,15 @@ struct BookDetailView: View {
                 }
                 
                 // 阅读记录
-                Section(header: Text("阅读记录")) {
+                Section(header: HStack {
+                    Text("阅读记录")
+                    Spacer()
+                    Button(action: {
+                        isShowingAddReadingLog = true
+                    }) {
+                        Image(systemName: "plus.circle")
+                    }
+                }) {
                     if editedBook.readingLogs.isEmpty {
                         Text("暂无阅读记录")
                             .foregroundColor(.gray)
@@ -110,16 +113,24 @@ struct BookDetailView: View {
                                 Spacer()
                                 Text("时长: \(log.duration / 60, specifier: "%.2f") 分钟")
                             }
-                            .swipeActions {
-                                Button(role: .destructive) {
+                            .contextMenu {
+                                Button(action: {
                                     logToDelete = log
                                     showDeleteConfirmation = true
-                                } label: {
+                                }) {
                                     Label("删除", systemImage: "trash")
                                 }
                             }
                         }
                     }
+                }
+                .sheet(isPresented: $isShowingAddReadingLog) {
+                    AddReadingLogView(book: $editedBook, folder: .constant(folder), bookManager: bookManager)
+                        .onDisappear {
+                            if bookManager.folders.contains(where: { $0.id == folder.id }) {
+                                saveChanges()
+                            }
+                        }
                 }
                 .alert(isPresented: $showDeleteConfirmation) {
                     Alert(
@@ -131,6 +142,7 @@ struct BookDetailView: View {
                                     withAnimation {
                                         editedBook.readingLogs.remove(at: index)
                                         saveChanges {
+                                            // 添加一个平滑的动画，返回到FolderView
                                             withAnimation(.easeInOut) {
                                                 presentationMode.wrappedValue.dismiss()
                                             }
@@ -153,9 +165,9 @@ struct BookDetailView: View {
                             saveChanges {
                                 isEditing = false
                                 isSaving = false
-                                book = editedBook
+                                book = editedBook // 同步更新外部绑定的书籍对象
                                 withAnimation(.easeInOut) {
-                                    presentationMode.wrappedValue.dismiss()
+                                    presentationMode.wrappedValue.dismiss() // 添加过渡动画
                                 }
                             }
                         } else {
@@ -165,7 +177,7 @@ struct BookDetailView: View {
                     }
                 }) {
                     if isSaving {
-                        ProgressView()
+                        ProgressView() // 保存时显示进度指示器
                             .frame(maxWidth: .infinity)
                             .padding()
                             .background(Color.gray)
@@ -183,12 +195,9 @@ struct BookDetailView: View {
                 
                 // 阅读模式按钮
                 Button(action: {
-                    if !isPresentingView {
-                        isPresentingView = true
-                        selectedBook = editedBook
-                        selectedFolder = folder
-                        isShowingReadingMode = true
-                    }
+                    selectedBook = editedBook
+                    selectedFolder = folder
+                    isShowingReadingMode = true
                 }) {
                     Text("阅读模式")
                         .frame(maxWidth: .infinity)
@@ -197,23 +206,15 @@ struct BookDetailView: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-                .sheet(isPresented: $isShowingReadingMode, onDismiss: {
-                    isPresentingView = false
-                }) {
-                    ReadingModeView(
-                        bookManager: bookManager,
-                        selectedBook: Binding<Book?>(
-                            get: { editedBook },
-                            set: { _ in }
-                        ),
-                        selectedFolder: .constant(folder),
-                        onEndReading: { book, log in
-                            saveReadingLog(log)
-                        },
-                        onSave: { book, log in
-                            saveReadingLog(log)
-                        }
-                    )
+                .sheet(isPresented: $isShowingReadingMode) {
+                    ReadingModeView(bookManager: bookManager,
+                                    selectedBook: Binding<Book?>(
+                                        get: { editedBook },
+                                        set: { _ in }
+                                    ),
+                                    selectedFolder: .constant(folder)) { book, log in
+                        saveReadingLog(log)
+                    }
                 }
             }
             .padding()
@@ -224,6 +225,7 @@ struct BookDetailView: View {
         }
     }
     
+    // 保存阅读日志的函数，避免重复添加
     private func saveReadingLog(_ log: ReadingLog) {
         if !editedBook.readingLogs.contains(where: { $0.id == log.id }) {
             editedBook.readingLogs.append(log)
@@ -231,6 +233,7 @@ struct BookDetailView: View {
         }
     }
     
+    // 保存更改的函数
     private func saveChanges(completion: @escaping () -> Void = {}) {
         DispatchQueue.main.async {
             if let lastLog = editedBook.readingLogs.last {

@@ -1,3 +1,5 @@
+import SwiftUI
+
 struct OnboardingView: View {
     @Binding var hasCompletedOnboarding: Bool
     @State private var currentStep: Int = 1
