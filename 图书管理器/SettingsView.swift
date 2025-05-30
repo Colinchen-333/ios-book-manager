@@ -92,6 +92,7 @@ struct SettingsView: View {
             .onAppear {
                 // 设置列表背景为透明
                 UITableView.appearance().backgroundColor = .clear
+                UITableView.appearance().separatorColor = .clear
                 
                 // 设置导航栏样式
                 let appearance = UINavigationBarAppearance()
@@ -396,6 +397,12 @@ struct DebugView: View {
                 )
             }
             .listStyle(InsetGroupedListStyle())
+            .background(Color.clear) // 设置列表背景为透明
+            .onAppear {
+                // 设置列表背景为透明
+                UITableView.appearance().backgroundColor = .clear
+                UITableView.appearance().separatorColor = .clear
+            }
         }
         .navigationTitle("调试信息")
     }
