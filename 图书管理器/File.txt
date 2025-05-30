@@ -1,0 +1,1 @@
+var readingLogs: [ReadingLog] = [] // 存储阅读记录
