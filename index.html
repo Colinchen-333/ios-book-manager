@@ -46,10 +46,31 @@
         .card-hover {
             transition: all 0.3s ease;
         }
-                 .card-hover:hover {
-             border-color: rgba(230, 194, 0, 0.8);
-             transform: translateY(-2px);
-         }
+        .card-hover:hover {
+            border-color: rgba(230, 194, 0, 0.8);
+            transform: translateY(-2px);
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite alternate;
+        }
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 20px rgba(230, 194, 0, 0.3); }
+            to { box-shadow: 0 0 30px rgba(230, 194, 0, 0.6); }
+        }
+        .platform-badge-small {
+            transition: all 0.3s ease;
+        }
+        .platform-badge-small:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(230, 194, 0, 0.4);
+        }
     </style>
 </head>
 <body class="bg-black text-gray-100">
@@ -125,7 +146,7 @@
     <!-- Pillars Section -->
     <section class="py-20 px-4 gradient-bg-section">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-gradient">双支柱简介</h2>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-gradient fade-in-up">双支柱简介</h2>
             
             <div class="grid md:grid-cols-2 gap-6 md:gap-12">
                 <!-- Efficiency Pillar -->
@@ -134,10 +155,21 @@
                         <img src="images/qiyin-icon.png" alt="七印图标" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mr-3 md:mr-4 shadow-sm" loading="lazy">
                         <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gradient">效率 · Efficiency</h3>
                     </div>
-                    <p class="text-gray-200 text-base md:text-lg leading-relaxed">
+                    <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-4">
                         一分钟建好图书馆。七印图书管理器，用 OCR + 云同步，让碎片书单秒变数字藏书。
                     </p>
-                    <a href="efficiency.html" class="inline-block mt-4 md:mt-6 font-semibold transition-all duration-300 text-gradient">
+                    
+                    <!-- Platform Support Badges -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="platform-badge-small inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 text-yellow-300 border border-yellow-400/30 pulse-glow">
+                            <i class="fab fa-apple mr-1 text-xs"></i>macOS已支持
+                        </span>
+                        <span class="platform-badge-small inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 text-yellow-300 border border-yellow-400/30 pulse-glow">
+                            <i class="fas fa-tablet-alt mr-1 text-xs"></i>iPad已支持
+                        </span>
+                    </div>
+                    
+                    <a href="efficiency.html" class="inline-block mt-2 md:mt-4 font-semibold transition-all duration-300 text-gradient">
                         了解更多 →
                     </a>
                 </div>
@@ -260,4 +292,4 @@
         }
     </script>
 </body>
-</html> 
+</html>

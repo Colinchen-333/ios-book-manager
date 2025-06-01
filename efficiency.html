@@ -51,6 +51,33 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.2), 0 4px 6px -2px rgba(251, 191, 36, 0.1);
         }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .platform-badge {
+            transition: all 0.3s ease;
+        }
+        .platform-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(230, 194, 0, 0.4);
+        }
+        .enhanced-glow {
+            box-shadow: 0 0 30px rgba(230, 194, 0, 0.3), 0 0 60px rgba(230, 194, 0, 0.1);
+        }
+        .enhanced-glow:hover {
+            box-shadow: 0 0 40px rgba(230, 194, 0, 0.5), 0 0 80px rgba(230, 194, 0, 0.2);
+        }
     </style>
 </head>
 <body class="bg-black text-gray-100">
@@ -102,7 +129,20 @@
             </div>
             <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-6">七印图书管理器</h1>
             <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-6 md:mb-8" style="color: #E6C200;">Qiyin App</h2>
-            <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-gray-200 px-2">专为纸质书籍爱好者设计的强大工具</p>
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-gray-200 px-2">专为纸质书籍爱好者设计的强大工具</p>
+            
+            <!-- Platform Support Badges -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8 md:mb-12 px-4 fade-in">
+                <span class="platform-badge inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 text-yellow-300 border border-yellow-400/30 enhanced-glow">
+                    <i class="fab fa-apple mr-2"></i>macOS版本已支持
+                </span>
+                <span class="platform-badge inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 text-yellow-300 border border-yellow-400/30 enhanced-glow">
+                    <i class="fas fa-tablet-alt mr-2"></i>iPad版本已支持
+                </span>
+                <span class="platform-badge inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 text-yellow-300 border border-yellow-400/30 enhanced-glow">
+                    <i class="fas fa-mobile-alt mr-2"></i>iPhone版本可用
+                </span>
+            </div>
             
             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-16 md:mb-20 px-4 sm:px-0">
                 <a href="https://apps.apple.com/us/app/%E4%B8%83%E5%8D%B0/id6670341351" target="_blank" class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:from-yellow-300 hover:to-yellow-500 transition-all transform hover:scale-105 gold-glow text-center" style="background: linear-gradient(135deg, #E6C200, #CC9500);">
@@ -151,9 +191,41 @@
             <h2 class="text-4xl font-bold text-center mb-16 text-gradient">产品介绍</h2>
             
             <div class="gradient-card backdrop-blur-sm rounded-2xl p-8">
-                <p class="text-lg text-gray-100 leading-relaxed mb-8">
-                    七印-图书管理器是一款强大的工具，专为纸质书籍爱好者设计，帮助用户高效地管理和分类自己的书籍收藏。无论你是想追踪自己的阅读进度，记录重要的阅读笔记，还是为每本书分配特定的类别，这款应用都能满足你的需求。
+                <p class="text-lg text-gray-100 leading-relaxed mb-6">
+                    七印图书管理器是一款专为纸质书籍爱好者打造的智能管理工具，现已全面支持 iPhone、iPad 和 macOS 平台。无论你是想追踪阅读进度、记录重要笔记，还是为书籍分配特定类别，七印都能为你提供完整的数字化图书管理解决方案。
                 </p>
+                <div class="bg-black/30 rounded-xl p-4 border border-yellow-400/20">
+                    <p class="text-yellow-300 text-sm font-medium mb-2">
+                        <i class="fas fa-sparkles mr-2"></i>跨平台同步体验
+                    </p>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        在 iPhone 上快速录入，在 iPad 上舒适阅读，在 Mac 上深度管理 - 你的图书数据在所有设备间无缝同步，让阅读管理变得前所未有的便捷。
+                    </p>
+                </div>
+                
+                <!-- Platform Support -->
+                <div class="mt-8 pt-6 border-t border-yellow-500/30">
+                    <h3 class="text-xl font-bold mb-6 text-center text-gradient">平台支持</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="flex items-center justify-center bg-black/30 rounded-xl p-4 border border-yellow-500/20">
+                            <i class="fab fa-apple text-2xl mr-3 text-gradient"></i>
+                            <div>
+                                <div class="font-semibold text-gradient">macOS版本已支持</div>
+                                <div class="text-sm text-gray-300">适配Mac桌面端使用</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center bg-black/30 rounded-xl p-4 border border-yellow-500/20">
+                            <i class="fas fa-tablet-alt text-2xl mr-3 text-gradient"></i>
+                            <div>
+                                <div class="font-semibold text-gradient">iPad版本已支持</div>
+                                <div class="text-sm text-gray-300">优化平板阅读体验</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-6">
+                        <p class="text-sm text-gray-400">支持iPhone、iPad、Mac多设备同步使用</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -166,7 +238,7 @@
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 <!-- Feature 1 -->
-                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl slide-up" style="border: 2px solid rgba(230, 194, 0, 0.5); animation-delay: 0.1s;">
                     <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
                         <i class="fas fa-books"></i>
                     </div>
@@ -175,7 +247,7 @@
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl slide-up" style="border: 2px solid rgba(230, 194, 0, 0.5); animation-delay: 0.2s;">
                     <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
                         <i class="fas fa-chart-line"></i>
                     </div>
@@ -184,7 +256,7 @@
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl slide-up" style="border: 2px solid rgba(230, 194, 0, 0.5); animation-delay: 0.3s;">
                     <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
                         <i class="fas fa-journal-whills"></i>
                     </div>
@@ -193,7 +265,7 @@
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl slide-up" style="border: 2px solid rgba(230, 194, 0, 0.5); animation-delay: 0.4s;">
                     <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
                         <i class="fas fa-layer-group"></i>
                     </div>
@@ -202,7 +274,7 @@
                 </div>
 
                 <!-- Feature 5 -->
-                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl slide-up" style="border: 2px solid rgba(230, 194, 0, 0.5); animation-delay: 0.5s;">
                     <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
                         <i class="fas fa-search"></i>
                     </div>
@@ -211,7 +283,7 @@
                 </div>
 
                 <!-- Feature 6 -->
-                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                <div class="feature-card bg-gray-900 p-6 md:p-8 rounded-xl slide-up" style="border: 2px solid rgba(230, 194, 0, 0.5); animation-delay: 0.6s;">
                     <div class="text-3xl md:text-4xl mb-4 md:mb-6" style="color: #E6C200;">
                         <i class="fas fa-trash-restore"></i>
                     </div>
@@ -407,4 +479,4 @@
         }
     </script>
 </body>
-</html> 
+</html>
