@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用条款 - Lumirain Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+        }
+        .gradient-bg-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 30%, #000000 70%, #0a0a0a 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #E6C200 0%, #CC9500 30%, #E6C200 70%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gradient-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+            border: 2px solid rgba(230, 194, 0, 0.5);
+        }
+        .content-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-sm shadow-sm" style="border-bottom: 1px solid rgba(230, 194, 0, 0.2);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="images/lumirain-logo.png" alt="Lumirain Logo" class="w-8 h-8 rounded-lg mr-3" loading="lazy">
+                    <h1 class="text-lg sm:text-xl font-bold" style="color: #E6C200;">Lumirain Studio</h1>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">首页</a>
+                        <a href="efficiency.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">七印</a>
+                        <a href="impact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">信息站</a>
+                        <a href="about.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">关于</a>
+                        <a href="contact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">联系</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500 p-2" style="color: #E6C200;">
+                        <span class="sr-only">Open main menu</span>
+                        <i id="menu-icon" class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 backdrop-blur-sm" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+                <a href="index.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">首页</a>
+                <a href="efficiency.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">七印</a>
+                <a href="impact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">信息站</a>
+                <a href="about.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">关于</a>
+                <a href="contact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="gradient-bg py-20 px-4 pt-32">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-8">
+                <i class="fas fa-gavel text-4xl md:text-6xl text-gradient"></i>
+            </div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gradient">使用条款</h1>
+            <p class="text-lg text-gray-300 mb-8">请仔细阅读本使用条款，下载或使用七印即表示您同意这些条款</p>
+            <div class="text-sm text-gray-400">
+                <p>最后更新时间：2025年1月</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- 接受条款 -->
+            <div class="gradient-card p-6 md:p-8 rounded-2xl mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gradient">
+                    <i class="fas fa-handshake mr-3"></i>接受条款
+                </h2>
+                <div class="text-gray-200 space-y-4">
+                    <p>欢迎使用七印图书管理器（以下简称"七印"、"本应用"或"本服务"）。本最终用户许可协议（EULA）是您与Lumirain Studio之间的法律协议，规定了您对本应用的使用权限和义务。</p>
+                    <div class="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/30">
+                        <p class="font-semibold" style="color: #FDE047;">重要提醒：</p>
+                        <p>通过下载、安装或使用七印，您确认已阅读、理解并同意遵守本协议的所有条款。如果您不同意这些条款，请不要使用本应用。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 许可授权 -->
+            <div class="gradient-card p-6 md:p-8 rounded-2xl mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gradient">
+                    <i class="fas fa-certificate mr-3"></i>许可授权
+                </h2>
+                <div class="text-gray-200 space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3" style="color: #E6C200;">授权范围</h3>
+                        <p class="mb-3">在遵守本协议的前提下，我们授予您以下权利：</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>在您拥有的设备上安装和使用七印的非独占、不可转让许可</li>
+                            <li>根据App Store使用条款在家庭成员间共享应用</li>
+                            <li>创建应用的备份副本用于存档目的</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3" style="color: #E6C200;">使用限制</h3>
+                        <div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+                            <p class="mb-2 font-semibold">您不得：</p>
+                            <ul class="list-disc pl-6 space-y-1 text-sm">
+                                <li>逆向工程、反编译或反汇编应用</li>
+                                <li>修改、改编或创建衍生作品</li>
+                                <li>用于商业目的重新分发应用</li>
+                                <li>移除或修改版权声明</li>
+                                <li>使用应用进行违法活动</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 账户与数据 -->
+            <div class="gradient-card p-6 md:p-8 rounded-2xl mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gradient">
+                    <i class="fas fa-database mr-3"></i>账户与数据管理
+                </h2>
+                <div class="text-gray-200 space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-black/30 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: #E6C200;">账户责任</h3>
+                            <ul class="list-disc pl-6 space-y-1 text-sm">
+                                <li>您负责保护iCloud账户安全</li>
+                                <li>及时更新联系信息</li>
+                                <li>对账户活动承担责任</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: #E6C200;">数据所有权</h3>
+                            <ul class="list-disc pl-6 space-y-1 text-sm">
+                                <li>您保留所有输入数据的所有权</li>
+                                <li>我们不声明对用户内容的权利</li>
+                                <li>定期备份重要数据</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+                        <h3 class="text-lg font-semibold mb-2" style="color: #60A5FA;">iCloud同步说明</h3>
+                        <p class="text-sm">七印使用Apple iCloud进行数据同步，请确保您的iCloud存储空间充足，并了解Apple的iCloud服务条款。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 服务可用性 -->
+            <div class="gradient-card p-6 md:p-8 rounded-2xl mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gradient">
+                    <i class="fas fa-server mr-3"></i>服务可用性
+                </h2>
+                <div class="text-gray-200 space-y-4">
+                    <div class="bg-orange-900/20 p-4 rounded-lg border border-orange-500/30">
+                        <h3 class="text-lg font-semibold mb-2" style="color: #F97316;">服务中断</h3>
+                        <p class="mb-2">以下情况可能导致服务暂时不可用：</p>
+                        <ul class="list-disc pl-6 space-y-1 text-sm">
+                            <li>系统维护和升级</li>
+                            <li>技术故障或网络问题</li>
+                            <li>Apple服务中断</li>
+                            <li>不可抗力因素</li>
+                        </ul>
+                    </div>
+                    <p class="text-sm text-gray-400">我们将尽力保证服务的连续性，但不对服务中断承担责任。</p>
+                </div>
+            </div>
+
+            <!-- 知识产权 -->
+            <div class="gradient-card p-6 md:p-8 rounded-2xl mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gradient">
+                    <i class="fas fa-copyright mr-3"></i>知识产权
+                </h2>
+                <div class="text-gray-200 space-y-4">
+                    <div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+                        <h3 class="text-lg font-semibold mb-2" style="color: #A855F7;">我们的权利</h3>
+                        <p class="mb-2">七印及其所有组成部分受知识产权法保护，包括但不限于：</p>
+                        <ul class="list-disc pl-6 space-y-1 text-sm">
+                            <li>软件代码和算法</li>
+                            <li>用户界面设计</li>
+                            <li>商标和标识</li>
+                            <li>文档和帮助内容</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-900/20 p-4 rounded-lg border border-green-500/30">
+                        <h3 class="text-lg font-semibold mb-2" style="color: #10B981;">用户内容</h3>
+                        <p class="text-sm">您保留对输入七印的所有内容（图书信息、笔记等）的完全所有权。我们仅获得为提供服务所必需的技术性权利。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 免责声明 -->
+            <div class="gradient-card p-6 md:p-8 rounded-2xl mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gradient">
+                    <i class="fas fa-exclamation-triangle mr-3"></i>免责声明
+                </h2>
+                <div class="text-gray-200 space-y-4">
+                    <div class="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/30">
+                        <h3 class="text-lg font-semibold mb-2" style="color: #FDE047;">服务现状</h3>
+                        <p class="text-sm mb-2">七印按"现状"提供，我们不提供任何明示或暗示的保证，包括但不限于：</p>
+                        <ul class="list-disc pl-6 space-y-1 text-sm">
+                            <li>适销性和特定用途适用性</li>
+                            <li>无错误或不间断运行</li>
+                            <li>数据的准确性和完整性</li>
+                            <li>与其他软件的兼容性</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+                        <h3 class="text-lg font-semibold mb-2" style="color: #EF4444;">责任限制</h3>
+                        <p class="text-sm">在法律允许的最大范围内，我们不承担因使用或无法使用七印而产生的任何直接、间接、偶然或后果性损害的责任。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 终止条款 -->
+            <div class="gradient-card p-6 md:p-8 rounded-2xl mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gradient">
+                    <i class="fas fa-stop-circle mr-3"></i>协议终止
+                </h2>
+                <div class="text-gray-200 space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-black/30 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: #E6C200;">您可以终止</h3>
+                            <ul class="list-disc pl-6 space-y-1 text-sm">
+                                <li>随时删除应用</li>
+                                <li>停止使用所有功能</li>
+                                <li>清除本地数据</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: #E6C200;">我们可以终止</h3>
+                            <ul class="list-disc pl-6 space-y-1 text-sm">
+                                <li>违反协议条款时</li>
+                                <li>滥用服务时</li>
+                                <li>停止服务时</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400">协议终止后，您应停止使用应用并删除所有副本。</p>
+                </div>
+            </div>
+
+            <!-- 法律条款 -->
+            <div class="gradient-card p-6 md:p-8 rounded-2xl mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gradient">
+                    <i class="fas fa-balance-scale mr-3"></i>法律条款
+                </h2>
+                <div class="text-gray-200 space-y-4">
+                    <div class="bg-gray-900/30 p-4 rounded-lg border border-gray-500/30">
+                        <h3 class="text-lg font-semibold mb-2" style="color: #9CA3AF;">适用法律</h3>
+                        <p class="text-sm">本协议受中华人民共和国法律管辖，不考虑冲突法原则。任何争议应通过协商解决，协商不成的，提交有管辖权的人民法院裁决。</p>
+                    </div>
+                    <div class="bg-gray-900/30 p-4 rounded-lg border border-gray-500/30">
+                        <h3 class="text-lg font-semibold mb-2" style="color: #9CA3AF;">可分割性</h3>
+                        <p class="text-sm">如果本协议的任何条款被认定为无效或不可执行，其余条款将继续有效。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 更新与修改 -->
+            <div class="gradient-card p-6 md:p-8 rounded-2xl mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gradient">
+                    <i class="fas fa-edit mr-3"></i>条款更新
+                </h2>
+                <div class="text-gray-200 space-y-4">
+                    <p>我们保留随时修改本协议的权利。重要修改时，我们会：</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>在应用内显示更新通知</li>
+                        <li>在官方网站发布公告</li>
+                        <li>提供至少30天的过渡期</li>
+                    </ul>
+                    <div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+                        <p class="text-sm">继续使用七印即表示您接受修改后的条款。如果您不同意修改，请停止使用应用。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 联系信息 -->
+            <div class="gradient-card p-6 md:p-8 rounded-2xl">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gradient">
+                    <i class="fas fa-envelope mr-3"></i>联系我们
+                </h2>
+                <div class="text-gray-200 space-y-4">
+                    <p>如果您对本使用条款有任何疑问，请通过以下方式联系我们：</p>
+                    <div class="bg-black/30 p-4 rounded-lg">
+                        <div class="space-y-2">
+                            <p><i class="fas fa-building mr-2 text-gradient"></i>Lumirain Studio</p>
+                            <p><i class="fas fa-at mr-2 text-gradient"></i>邮箱：legal@lumirain.com</p>
+                            <p><i class="fas fa-globe mr-2 text-gradient"></i>网站：<a href="contact.html" class="text-gradient">联系页面</a></p>
+                            <p><i class="fas fa-mobile-alt mr-2 text-gradient"></i>应用内反馈：设置 → 反馈与建议</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400">我们将在收到您的咨询后尽快回复。</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 px-4" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" style="color: #E6C200;">Lumirain Studio</h3>
+                    <p class="text-gray-400">点燃灵感，润泽成长</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">产品</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="efficiency.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">七印图书管理器</a></li>
+                        <li><a href="impact.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">助残信息站</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">法律</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="privacy-policy.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">隐私政策</a></li>
+                        <li><a href="terms-of-service.html" style="color: #E6C200;">使用条款</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">支持</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">关于我们</a></li>
+                        <li><a href="contact.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 text-center text-gray-400" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+                <p>&copy; 2025 Lumirain Studio. 诚信经营，合规服务</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="mobile-navigation.js"></script>
+</body>
+</html> 
