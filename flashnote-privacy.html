@@ -28,8 +28,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <img src="images/lumirain-logo.png" alt="Lumirain Logo" class="w-8 h-8 rounded-lg mr-3">
-                    <h1 class="text-lg sm:text-xl font-bold" style="color: #E6C200;">Lumirain Studio</h1>
+                    <img src="images/flashnote-icon.png" alt="Flash Note Logo" class="w-8 h-8 rounded-lg mr-3">
+                    <h1 class="text-lg sm:text-xl font-bold" style="color: #E6C200;">Flash Note</h1>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
@@ -47,66 +47,69 @@
     <section class="gradient-bg py-20 px-4 min-h-screen">
         <div class="max-w-4xl mx-auto pt-16">
             <div class="text-center mb-12">
-                <i class="fas fa-shield-alt text-6xl mb-6 text-gradient"></i>
+                <img src="images/flashnote-icon.png" alt="Flash Note Icon" class="w-16 h-16 mx-auto rounded-2xl shadow-lg mb-6">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gradient">Flash Note 隐私政策</h1>
-                <p class="text-lg text-gray-300">您的隐私是我们的首要关注</p>
+                <p class="text-lg text-gray-300">完全本地存储，零数据收集</p>
                 <p class="text-sm text-gray-400 mt-2">最后更新：2025年1月</p>
             </div>
 
             <div class="space-y-8">
                 <!-- 概述 -->
                 <div class="gradient-card p-8 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4 text-gradient">隐私承诺概述</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-gradient">隐私承诺</h2>
                     <p class="text-gray-200 text-lg leading-relaxed mb-4">
-                        Flash Note（秒记）是一款专注于隐私保护的任务管理应用。我们坚信您的个人数据应该完全属于您自己。
+                        Flash Note（秒记）是一款完全本地化的任务管理应用。我们的核心原则是保护您的隐私，因此采用了最严格的隐私保护措施。
                     </p>
                     <div class="bg-green-900/30 border border-green-500/50 rounded-lg p-4">
                         <div class="flex items-center mb-2">
-                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
-                            <strong class="text-green-300">核心承诺：我们不收集、不存储、不分析您的任何个人数据</strong>
+                            <i class="fas fa-shield-alt text-green-400 mr-2"></i>
+                            <strong class="text-green-300">核心原则：所有数据仅存储在您的设备本地，我们无法访问您的任何信息</strong>
                         </div>
                     </div>
                 </div>
 
-                <!-- 数据处理 -->
+                <!-- 数据存储方式 -->
                 <div class="gradient-card p-8 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4 text-gradient">数据处理方式</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-gradient">数据存储方式</h2>
                     
-                    <h3 class="text-xl font-semibold mb-3 text-yellow-400">1. 本地存储</h3>
-                    <ul class="text-gray-200 space-y-2 mb-6">
+                    <h3 class="text-xl font-semibold mb-3 text-yellow-400">完全本地存储</h3>
+                    <ul class="text-gray-200 space-y-3 mb-6">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>所有任务数据首先存储在您的设备本地</span>
+                            <i class="fas fa-database text-green-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>本地数据库：</strong>使用 Hive 本地数据库存储所有任务数据
+                            </div>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>使用 iOS 系统的 Core Data 框架，数据完全离线可用</span>
+                            <i class="fas fa-mobile-alt text-green-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>设备本地：</strong>数据仅存在于您的设备内部存储空间
+                            </div>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>应用删除后，所有本地数据自动清除</span>
+                            <i class="fas fa-wifi text-red-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>无网络传输：</strong>应用不进行任何网络数据传输
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-cloud-slash text-red-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>无云存储：</strong>不使用任何云存储服务
+                            </div>
                         </li>
                     </ul>
 
-                    <h3 class="text-xl font-semibold mb-3 text-yellow-400">2. iCloud 同步</h3>
-                    <ul class="text-gray-200 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>使用苹果官方 CloudKit 服务进行设备间同步</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>数据存储在您的私人 iCloud 账户中，我们无法访问</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>同步完全由苹果系统控制，遵循苹果的隐私标准</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>您可以随时在 iCloud 设置中关闭同步功能</span>
-                        </li>
-                    </ul>
+                    <div class="bg-blue-900/30 border border-blue-500/50 rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-300 mb-2">存储的数据类型</h4>
+                        <ul class="text-gray-200 text-sm space-y-1">
+                            <li>• 任务标题和概要内容</li>
+                            <li>• 任务分类（工作、个人、健康、其他）</li>
+                            <li>• 任务标签和优先级</li>
+                            <li>• 创建和修改时间</li>
+                            <li>• 完成状态</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- 我们不收集的信息 -->
@@ -120,11 +123,11 @@
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-times text-red-400 mr-3"></i>
-                                <span class="text-gray-200">任务内容或数据</span>
+                                <span class="text-gray-200">任务内容数据</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-times text-red-400 mr-3"></i>
-                                <span class="text-gray-200">使用习惯和行为</span>
+                                <span class="text-gray-200">使用行为分析</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-times text-red-400 mr-3"></i>
@@ -138,49 +141,47 @@
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-times text-red-400 mr-3"></i>
-                                <span class="text-gray-200">联系人或通讯录</span>
+                                <span class="text-gray-200">联系人信息</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-times text-red-400 mr-3"></i>
-                                <span class="text-gray-200">应用使用分析</span>
+                                <span class="text-gray-200">应用使用统计</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-times text-red-400 mr-3"></i>
-                                <span class="text-gray-200">崩溃日志</span>
+                                <span class="text-gray-200">崩溃和错误日志</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 第三方服务 -->
+                <!-- 技术实现 -->
                 <div class="gradient-card p-8 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4 text-gradient">第三方服务</h2>
-                    <div class="bg-blue-900/30 border border-blue-500/50 rounded-lg p-4 mb-4">
-                        <div class="flex items-center mb-2">
-                            <i class="fas fa-info-circle text-blue-400 mr-2"></i>
-                            <strong class="text-blue-300">Flash Note 完全独立运行，不集成任何第三方服务</strong>
-                        </div>
-                    </div>
-                    <ul class="text-gray-200 space-y-2">
+                    <h2 class="text-2xl font-bold mb-4 text-gradient">技术实现细节</h2>
+                    <ul class="text-gray-200 space-y-3">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>无广告网络</span>
+                            <i class="fas fa-code text-yellow-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>Flutter 框架：</strong>使用 Flutter 跨平台框架开发
+                            </div>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>无分析工具（如 Google Analytics）</span>
+                            <i class="fas fa-database text-yellow-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>Hive 数据库：</strong>轻量级本地数据库，支持离线操作
+                            </div>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>无社交媒体集成</span>
+                            <i class="fas fa-cogs text-yellow-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>Provider 状态管理：</strong>本地状态管理，无外部依赖
+                            </div>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>无错误报告服务</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>仅使用苹果官方 CloudKit 进行数据同步</span>
+                            <i class="fas fa-lock text-yellow-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>系统加密：</strong>依赖操作系统的文件系统加密保护
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -191,17 +192,17 @@
                     <p class="text-gray-200 mb-4">Flash Note 仅请求运行所必需的最少权限：</p>
                     <ul class="text-gray-200 space-y-3">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <i class="fas fa-bell text-green-400 mr-3 mt-1"></i>
                             <div>
-                                <strong class="text-yellow-400">iCloud 访问</strong>
-                                <p class="text-sm text-gray-300">用于在您的设备间同步任务数据，可选开启</p>
+                                <strong class="text-yellow-400">通知权限（可选）</strong>
+                                <p class="text-sm text-gray-300">用于任务提醒，完全由您控制开关，不涉及数据传输</p>
                             </div>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <i class="fas fa-folder text-green-400 mr-3 mt-1"></i>
                             <div>
-                                <strong class="text-yellow-400">通知权限（可选）</strong>
-                                <p class="text-sm text-gray-300">用于任务提醒通知，完全由您控制开关</p>
+                                <strong class="text-yellow-400">本地存储</strong>
+                                <p class="text-sm text-gray-300">仅用于在设备内部存储您的任务数据</p>
                             </div>
                         </li>
                     </ul>
@@ -209,23 +210,42 @@
 
                 <!-- 数据安全 -->
                 <div class="gradient-card p-8 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4 text-gradient">数据安全保护</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-gradient">数据安全措施</h2>
                     <ul class="text-gray-200 space-y-3">
                         <li class="flex items-start">
                             <i class="fas fa-shield-alt text-green-400 mr-3 mt-1"></i>
-                            <span><strong>端到端加密：</strong>通过 CloudKit 同步的数据采用苹果的端到端加密技术</span>
+                            <span><strong>设备锁定保护：</strong>数据受设备锁屏密码或生物识别保护</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-lock text-green-400 mr-3 mt-1"></i>
-                            <span><strong>本地加密：</strong>设备本地存储使用 iOS 系统级加密保护</span>
+                            <i class="fas fa-hard-drive text-green-400 mr-3 mt-1"></i>
+                            <span><strong>文件系统加密：</strong>依赖操作系统的文件系统加密</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-user-shield text-green-400 mr-3 mt-1"></i>
-                            <span><strong>访问控制：</strong>只有您本人可以通过您的 Apple ID 访问数据</span>
+                            <span><strong>沙盒隔离：</strong>应用数据与其他应用完全隔离</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-trash text-green-400 mr-3 mt-1"></i>
-                            <span><strong>数据删除：</strong>卸载应用或清除 iCloud 数据可完全删除所有信息</span>
+                            <span><strong>数据清除：</strong>卸载应用可完全清除所有数据</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 数据导出和删除 -->
+                <div class="gradient-card p-8 rounded-2xl">
+                    <h2 class="text-2xl font-bold mb-4 text-gradient">您的数据权利</h2>
+                    <ul class="text-gray-200 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-download text-blue-400 mr-3 mt-1"></i>
+                            <span><strong>数据导出：</strong>您可以通过应用内功能导出您的任务数据</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-eraser text-blue-400 mr-3 mt-1"></i>
+                            <span><strong>数据删除：</strong>您可以随时在应用内清空所有数据</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-mobile-alt text-blue-400 mr-3 mt-1"></i>
+                            <span><strong>完全控制：</strong>您对所有数据拥有完全的控制权</span>
                         </li>
                     </ul>
                 </div>
@@ -234,9 +254,9 @@
                 <div class="gradient-card p-8 rounded-2xl">
                     <h2 class="text-2xl font-bold mb-4 text-gradient">儿童隐私保护</h2>
                     <p class="text-gray-200 leading-relaxed">
-                        Flash Note 不会故意收集 13 岁以下儿童的个人信息。由于我们不收集任何用户数据，
-                        这一政策自动适用于所有用户，包括儿童。如果您是家长并发现我们可能无意中收集了
-                        您孩子的信息，请联系我们，我们将立即删除此类信息。
+                        Flash Note 不收集任何用户数据，包括儿童数据。由于应用完全本地化运行，
+                        不涉及任何数据传输或收集，因此天然符合儿童隐私保护要求。
+                        13岁以下的儿童可以安全使用本应用。
                     </p>
                 </div>
 
@@ -244,19 +264,19 @@
                 <div class="gradient-card p-8 rounded-2xl">
                     <h2 class="text-2xl font-bold mb-4 text-gradient">隐私政策变更</h2>
                     <p class="text-gray-200 leading-relaxed mb-4">
-                        我们可能会不时更新本隐私政策。任何重大变更都会：
+                        如果我们对隐私政策进行重大变更，我们会：
                     </p>
                     <ul class="text-gray-200 space-y-2">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>在应用内显著位置发布通知</span>
+                            <i class="fas fa-bell text-yellow-400 mr-3 mt-1"></i>
+                            <span>在应用更新时显著提示</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
-                            <span>在我们的网站上更新政策内容</span>
+                            <i class="fas fa-globe text-yellow-400 mr-3 mt-1"></i>
+                            <span>在官方网站发布更新通知</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <i class="fas fa-calendar text-yellow-400 mr-3 mt-1"></i>
                             <span>在政策顶部标注最新更新日期</span>
                         </li>
                     </ul>
@@ -266,19 +286,19 @@
                 <div class="gradient-card p-8 rounded-2xl">
                     <h2 class="text-2xl font-bold mb-4 text-gradient">联系我们</h2>
                     <p class="text-gray-200 leading-relaxed mb-4">
-                        如果您对本隐私政策有任何疑问或建议，请通过以下方式联系我们：
+                        如果您对本隐私政策有任何疑问，请联系我们：
                     </p>
                     <div class="space-y-3">
                         <div class="flex items-center">
                             <i class="fas fa-envelope text-yellow-400 mr-3"></i>
-                            <span class="text-gray-200">邮箱：privacy@lumirain.com</span>
+                            <span class="text-gray-200">邮箱：flashnote@lumirain.com</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-globe text-yellow-400 mr-3"></i>
-                            <span class="text-gray-200">网站：<a href="https://lumirain.com" class="text-yellow-400">lumirain.com</a></span>
+                            <span class="text-gray-200">网站：<a href="https://lumirain.com/flashnote.html" class="text-yellow-400">lumirain.com/flashnote</a></span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-yellow-400 mr-3"></i>
+                            <i class="fas fa-building text-yellow-400 mr-3"></i>
                             <span class="text-gray-200">开发者：Lumirain Studio</span>
                         </div>
                     </div>
@@ -305,7 +325,7 @@
                     ← 返回 Flash Note 页面
                 </a>
             </div>
-            <p class="text-gray-400">&copy; 2025 Lumirain Studio. 您的隐私，我们的责任</p>
+            <p class="text-gray-400">&copy; 2025 Lumirain Studio. 本地存储，隐私至上</p>
         </div>
     </footer>
 </body>
