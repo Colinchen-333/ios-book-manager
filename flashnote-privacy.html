@@ -28,7 +28,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <img src="images/flashnote-icon.png" alt="Flash Note Logo" class="w-8 h-8 rounded-lg mr-3">
+                    <img src="images/flashnote-icon.png" alt="Flash Note Logo" class="w-8 h-8 rounded-lg mr-3" loading="lazy">
                     <h1 class="text-lg sm:text-xl font-bold" style="color: #E6C200;">Flash Note</h1>
                 </div>
                 <div class="hidden md:block">
@@ -47,7 +47,7 @@
     <section class="gradient-bg py-20 px-4 min-h-screen">
         <div class="max-w-4xl mx-auto pt-16">
             <div class="text-center mb-12">
-                <img src="images/flashnote-icon.png" alt="Flash Note Icon" class="w-16 h-16 mx-auto rounded-2xl shadow-lg mb-6">
+                <img src="images/flashnote-icon.png" alt="Flash Note Icon" class="w-16 h-16 mx-auto rounded-2xl shadow-lg mb-6" loading="lazy">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gradient">Flash Note 隐私政策</h1>
                 <p class="text-lg text-gray-300">完全本地存储，零数据收集</p>
                 <p class="text-sm text-gray-400 mt-2">最后更新：2025年1月</p>
@@ -108,6 +108,7 @@
                             <li>• 任务标签和优先级</li>
                             <li>• 创建和修改时间</li>
                             <li>• 完成状态</li>
+                            <li>• AI解析结果（仅本地处理）</li>
                         </ul>
                     </div>
                 </div>
@@ -186,11 +187,68 @@
                     </ul>
                 </div>
 
+                <!-- AI功能数据处理 -->
+                <div class="gradient-card p-8 rounded-2xl">
+                    <h2 class="text-2xl font-bold mb-4 text-gradient">AI功能数据处理</h2>
+                    <p class="text-gray-200 mb-4">Flash Note 集成AI功能来提升用户体验，具体处理方式如下：</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-yellow-400">语音识别</h3>
+                    <ul class="text-gray-200 space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-microphone text-blue-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>本地语音处理：</strong>使用设备内置语音识别引擎，音频不离开设备
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-shield-alt text-green-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>隐私保护：</strong>语音数据不会被录制、存储或传输
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mb-3 text-yellow-400">AI智能解析</h3>
+                    <ul class="text-gray-200 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-cloud text-blue-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>云端AI服务：</strong>使用硅基流动API和Qwen2.5模型进行文本解析
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-yellow-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>临时处理：</strong>仅发送任务文本内容，处理完成后立即删除
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-user-secret text-green-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>匿名化：</strong>不包含任何个人身份信息，仅为功能性文本处理
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-toggle-off text-green-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong>可选功能：</strong>您可以选择关闭AI功能，完全使用本地模式
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
                 <!-- 权限请求 -->
                 <div class="gradient-card p-8 rounded-2xl">
                     <h2 class="text-2xl font-bold mb-4 text-gradient">应用权限</h2>
                     <p class="text-gray-200 mb-4">Flash Note 仅请求运行所必需的最少权限：</p>
                     <ul class="text-gray-200 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-microphone text-green-400 mr-3 mt-1"></i>
+                            <div>
+                                <strong class="text-yellow-400">麦克风权限（可选）</strong>
+                                <p class="text-sm text-gray-300">用于语音识别功能，音频仅在设备本地处理</p>
+                            </div>
+                        </li>
                         <li class="flex items-start">
                             <i class="fas fa-bell text-green-400 mr-3 mt-1"></i>
                             <div>
