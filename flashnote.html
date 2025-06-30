@@ -50,6 +50,7 @@
                     <img src="images/lumirain-logo.png" alt="Lumirain Logo" class="w-8 h-8 rounded-lg mr-3" loading="lazy">
                     <h1 class="text-lg sm:text-xl font-bold" style="color: #E6C200;">Lumirain Studio</h1>
                 </div>
+                <!-- Desktop Navigation -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="index.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">首页</a>
@@ -60,6 +61,25 @@
                         <a href="contact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">联系</a>
                     </div>
                 </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500 p-2" style="color: #E6C200;">
+                        <span class="sr-only">Open main menu</span>
+                        <i id="menu-icon" class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 backdrop-blur-sm" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
+                <a href="index.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">首页</a>
+                <a href="efficiency.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">七印</a>
+                <a href="flashnote.html" class="text-gray-300 block px-3 py-2 text-base font-medium border-l-4 border-transparent" style="color: #E6C200; border-left-color: #E6C200;">flash Memo</a>
+                <a href="impact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">信息站</a>
+                <a href="about.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">关于</a>
+                <a href="contact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">联系</a>
             </div>
         </div>
     </nav>
@@ -223,12 +243,10 @@
                 <div>
                     <h4 class="font-semibold mb-4" style="color: #E6C200;">法律</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="qiyin-privacy.html">七印 隐私政策</a></li>
-                        <li><a href="qiyin-terms.html">七印 使用条款</a></li>
-                        <li><a href="flashnote-privacy.html">flash Memo 隐私政策</a></li>
-                        <li><a href="flashnote-terms.html">flash Memo 使用条款</a></li>
-                        <li><a href="privacy-policy.html">通用 隐私政策</a></li>
-                        <li><a href="terms-of-service.html">通用 使用条款</a></li>
+                        <li><a href="flashnote-privacy.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">flash Memo 隐私政策</a></li>
+                        <li><a href="flashnote-terms.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">flash Memo 使用条款</a></li>
+                        <li><a href="privacy-policy.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">七印 隐私政策</a></li>
+                        <li><a href="terms-of-service.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">七印 使用条款</a></li>
                     </ul>
                 </div>
                 <div>
@@ -244,5 +262,41 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                // Toggle menu icon
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.className = 'fas fa-bars text-lg';
+                } else {
+                    menuIcon.className = 'fas fa-times text-lg';
+                }
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fas fa-bars text-lg';
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fas fa-bars text-lg';
+                });
+            });
+        }
+    </script>
 </body>
 </html>
