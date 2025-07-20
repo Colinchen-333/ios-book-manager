@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumirain知识库 · Knowledge Base - Lumirain Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+        }
+        .gradient-bg-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 30%, #000000 70%, #0a0a0a 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 30%, #FFD700 70%, #FFC107 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gold-glow {
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), 0 0 80px rgba(255, 215, 0, 0.3), 0 0 120px rgba(255, 215, 0, 0.1);
+        }
+        .gold-glow-intense {
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 215, 0, 0.4), 0 0 150px rgba(255, 215, 0, 0.2);
+        }
+        .gradient-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 10px 15px -3px rgba(255, 215, 0, 0.2), 0 4px 6px -2px rgba(255, 215, 0, 0.1);
+        }
+        .tech-stack-item {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .tech-stack-item:hover {
+            border-color: rgba(255, 215, 0, 0.8);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-sm shadow-sm" style="border-bottom: 1px solid rgba(255, 215, 0, 0.2);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="images/lumirain-logo.png" alt="Lumirain Logo" class="w-8 h-8 rounded-lg mr-3" loading="lazy">
+                    <a href="index.html" class="text-xl font-bold" style="color: #FFD700;">Lumirain Studio</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#d1d5db'">首页</a>
+                        <a href="efficiency.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#d1d5db'">七印</a>
+                        <a href="impact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#d1d5db'">信息站</a>
+                        <a href="knowledge-base.html" class="px-3 py-2 text-sm font-medium" style="color: #FFD700;">知识库</a>
+                        <a href="about.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#d1d5db'">关于</a>
+                        <a href="contact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#d1d5db'">联系</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500 p-2" style="color: #FFD700;">
+                        <span class="sr-only">Open main menu</span>
+                        <i id="menu-icon" class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 backdrop-blur-sm" style="border-top: 1px solid rgba(255, 215, 0, 0.2);">
+                <a href="index.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">首页</a>
+                <a href="efficiency.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">七印</a>
+                <a href="impact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">信息站</a>
+                <a href="knowledge-base.html" class="text-gray-300 block px-3 py-2 text-base font-medium border-l-4 border-transparent" style="color: #FFD700; border-left-color: #FFD700;">知识库</a>
+                <a href="about.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">关于</a>
+                <a href="contact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20 px-4 pt-32">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="mb-8">
+                <i class="fas fa-brain text-6xl mb-6 opacity-90" style="color: #FFD700;"></i>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Lumirain知识库</h1>
+            <h2 class="text-2xl md:text-3xl mb-8" style="color: #FFD700;">Knowledge Base</h2>
+            <p class="text-xl md:text-2xl mb-12 text-gray-200">现代化的个人知识管理平台，让知识触手可及。</p>
+            
+            <div class="backdrop-blur-sm rounded-xl p-8 max-w-4xl mx-auto" style="background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3);">
+                <h3 class="text-2xl font-bold mb-4" style="color: #FFD700;">核心价值</h3>
+                <p class="text-lg text-gray-100 leading-relaxed">
+                    一个集文章管理、分类浏览、智能搜索和AI辅助写作于一体的知识库平台。
+                    让知识管理变得简单高效，让创作灵感源源不断。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-4 gradient-bg-section">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gradient">核心功能</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card gradient-card p-8 rounded-xl text-center card-shadow">
+                    <div class="text-5xl mb-6 text-gradient">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">文章管理</h3>
+                    <p class="text-gray-200 mb-6">完整的CRUD操作，支持Markdown格式，图片上传，分类标签管理</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card gradient-card p-8 rounded-xl text-center card-shadow">
+                    <div class="text-5xl mb-6 text-gradient">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">智能搜索</h3>
+                    <p class="text-gray-200 mb-6">全文搜索功能，快速定位所需内容，支持关键词高亮显示</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card gradient-card p-8 rounded-xl text-center card-shadow">
+                    <div class="text-5xl mb-6 text-gradient">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">AI辅助写作</h3>
+                    <p class="text-gray-200 mb-6">集成xAI Grok模型，智能生成高质量文章内容</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card gradient-card p-8 rounded-xl text-center card-shadow">
+                    <div class="text-5xl mb-6 text-gradient">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">用户系统</h3>
+                    <p class="text-gray-200 mb-6">JWT身份验证，权限管理，支持注册登录和个人资料</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card gradient-card p-8 rounded-xl text-center card-shadow">
+                    <div class="text-5xl mb-6 text-gradient">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">响应式设计</h3>
+                    <p class="text-gray-200 mb-6">完美适配桌面端和移动端，优雅的现代化UI设计</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card gradient-card p-8 rounded-xl text-center card-shadow">
+                    <div class="text-5xl mb-6 text-gradient">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">数据统计</h3>
+                    <p class="text-gray-200 mb-6">文章浏览量统计，AI生成内容分析，使用情况仪表板</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="py-20 px-4 bg-black">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-16 text-gradient">技术栈</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Frontend -->
+                <div class="gradient-card p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6" style="color: #FFD700;">前端技术</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="tech-stack-item p-4 rounded-lg text-center">
+                            <i class="fab fa-react text-3xl mb-2" style="color: #61DAFB;"></i>
+                            <p class="font-semibold">React 18</p>
+                        </div>
+                        <div class="tech-stack-item p-4 rounded-lg text-center">
+                            <i class="fab fa-js-square text-3xl mb-2" style="color: #F7DF1E;"></i>
+                            <p class="font-semibold">TypeScript</p>
+                        </div>
+                        <div class="tech-stack-item p-4 rounded-lg text-center">
+                            <i class="fas fa-palette text-3xl mb-2" style="color: #06B6D4;"></i>
+                            <p class="font-semibold">Tailwind CSS</p>
+                        </div>
+                        <div class="tech-stack-item p-4 rounded-lg text-center">
+                            <i class="fas fa-route text-3xl mb-2" style="color: #CA4245;"></i>
+                            <p class="font-semibold">React Router</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="gradient-card p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6" style="color: #FFD700;">后端技术</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="tech-stack-item p-4 rounded-lg text-center">
+                            <i class="fab fa-node-js text-3xl mb-2" style="color: #339933;"></i>
+                            <p class="font-semibold">Node.js</p>
+                        </div>
+                        <div class="tech-stack-item p-4 rounded-lg text-center">
+                            <i class="fas fa-server text-3xl mb-2" style="color: #000000;"></i>
+                            <p class="font-semibold">Express</p>
+                        </div>
+                        <div class="tech-stack-item p-4 rounded-lg text-center">
+                            <i class="fas fa-leaf text-3xl mb-2" style="color: #4DB33D;"></i>
+                            <p class="font-semibold">MongoDB</p>
+                        </div>
+                        <div class="tech-stack-item p-4 rounded-lg text-center">
+                            <i class="fas fa-shield-alt text-3xl mb-2" style="color: #FFD700;"></i>
+                            <p class="font-semibold">JWT Auth</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Features -->
+    <section class="py-20 px-4 bg-gray-900">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-16 text-gradient">AI智能功能</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold mb-6" style="color: #FFD700;">🤖 xAI Grok集成</h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-3" style="color: #FFD700;"></i>
+                            <span>智能文章生成，支持多种写作风格</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-3" style="color: #FFD700;"></i>
+                            <span>自动标题生成和内容优化建议</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-3" style="color: #FFD700;"></i>
+                            <span>技术文档、教程、新闻等多种内容类型</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-3" style="color: #FFD700;"></i>
+                            <span>AI生成内容统计和分析</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="gradient-card p-8 rounded-xl">
+                    <div class="text-6xl mb-6 text-gradient">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" style="color: #FFD700;">智能创作助手</h3>
+                    <p class="text-gray-300">
+                        只需输入主题和关键词，AI就能为您生成高质量的文章内容，
+                        让创作变得简单高效。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Status -->
+    <section class="py-20 px-4 bg-black">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8 text-gradient">项目状态</h2>
+            <div class="bg-gray-900 rounded-2xl p-12 shadow-lg" style="border: 2px solid rgba(255, 215, 0, 0.5);">
+                <i class="fas fa-rocket text-6xl mb-6" style="color: #FFD700;"></i>
+                <h3 class="text-3xl font-bold mb-4" style="color: #FFD700;">开发完成</h3>
+                <p class="text-lg text-gray-300 mb-8">
+                    项目已完成核心功能开发，包括前端界面、后端API、数据库设计、
+                    AI集成等所有主要功能模块。
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 text-sm text-gray-400">
+                    <div>
+                        <p class="font-semibold mb-2" style="color: #FFD700;">前端</p>
+                        <p>React + TypeScript + Tailwind CSS</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold mb-2" style="color: #FFD700;">后端</p>
+                        <p>Node.js + Express + MongoDB</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold mb-2" style="color: #FFD700;">AI</p>
+                        <p>xAI Grok + SiliconFlow</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Plans -->
+    <section class="py-20 px-4 gradient-bg-section">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-16 text-gradient">未来规划</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="gradient-card p-6 rounded-xl text-center">
+                    <i class="fas fa-edit text-4xl mb-4" style="color: #FFD700;"></i>
+                    <h3 class="text-lg font-bold mb-2" style="color: #FFD700;">富文本编辑器</h3>
+                    <p class="text-gray-300 text-sm">更强大的内容编辑体验</p>
+                </div>
+
+                <div class="gradient-card p-6 rounded-xl text-center">
+                    <i class="fas fa-globe text-4xl mb-4" style="color: #FFD700;"></i>
+                    <h3 class="text-lg font-bold mb-2" style="color: #FFD700;">多语言支持</h3>
+                    <p class="text-gray-300 text-sm">国际化内容管理</p>
+                </div>
+
+                <div class="gradient-card p-6 rounded-xl text-center">
+                    <i class="fas fa-palette text-4xl mb-4" style="color: #FFD700;"></i>
+                    <h3 class="text-lg font-bold mb-2" style="color: #FFD700;">主题切换</h3>
+                    <p class="text-gray-300 text-sm">个性化界面定制</p>
+                </div>
+
+                <div class="gradient-card p-6 rounded-xl text-center">
+                    <i class="fas fa-download text-4xl mb-4" style="color: #FFD700;"></i>
+                    <h3 class="text-lg font-bold mb-2" style="color: #FFD700;">内容导出</h3>
+                    <p class="text-gray-300 text-sm">多种格式导出功能</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="py-20 px-4 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8">想要了解更多？</h2>
+            <p class="text-xl mb-12 text-gray-200">如果您对知识库项目感兴趣，或者想要合作开发，欢迎联系我们</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="text-black px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 gold-glow" style="background: linear-gradient(135deg, #FFD700, #FFA500);">
+                    <i class="fas fa-envelope mr-2"></i>联系我们
+                </a>
+                <a href="contact.html" class="border-2 px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105" style="border-color: #FFD700; color: #FFD700;" onmouseover="this.style.background='#FFD700'; this.style.color='black';" onmouseout="this.style.background='transparent'; this.style.color='#FFD700';">
+                    <i class="fas fa-handshake mr-2"></i>合作洽谈
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 px-4" style="border-top: 1px solid rgba(255, 215, 0, 0.2);">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" style="color: #E6C200;">Lumirain Studio</h3>
+                    <p class="text-gray-400">点燃灵感，润泽成长</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">产品</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="efficiency.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">七印图书管理器</a></li>
+                        <li><a href="flashnote.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">flash Memo 秒记</a></li>
+                        <li><a href="impact.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">助残信息站</a></li>
+                        <li><a href="knowledge-base.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">Lumirain知识库</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">法律</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="flashnote-privacy.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">flash Memo 隐私政策</a></li>
+                        <li><a href="flashnote-terms.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">flash Memo 使用条款</a></li>
+                        <li><a href="privacy-policy.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">七印 隐私政策</a></li>
+                        <li><a href="terms-of-service.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">七印 使用条款</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;">支持</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">关于我们</a></li>
+                        <li><a href="contact.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 text-center text-gray-400" style="border-top: 1px solid rgba(255, 215, 0, 0.2);">
+                <p>&copy; 2025 Lumirain Studio. Ignite | Nourish | Empower</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                // Toggle menu icon
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.className = 'fas fa-bars text-lg';
+                } else {
+                    menuIcon.className = 'fas fa-times text-lg';
+                }
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fas fa-bars text-lg';
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fas fa-bars text-lg';
+                });
+            });
+        }
+    </script>
+</body>
+</html> 
