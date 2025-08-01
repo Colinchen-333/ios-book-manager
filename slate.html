@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>助残资源中心 · Disability Resource Hub - Lumirain Studio</title>
+    <title>Slate - AI增强笔记应用 - Lumirain Studio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -22,9 +22,6 @@
         .gold-glow {
             box-shadow: 0 0 40px rgba(230, 194, 0, 0.6), 0 0 80px rgba(230, 194, 0, 0.3), 0 0 120px rgba(230, 194, 0, 0.1);
         }
-        .gold-glow-intense {
-            box-shadow: 0 0 50px rgba(230, 194, 0, 0.8), 0 0 100px rgba(230, 194, 0, 0.4), 0 0 150px rgba(230, 194, 0, 0.2);
-        }
         .gradient-card {
             background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
             border: 2px solid rgba(230, 194, 0, 0.5);
@@ -40,6 +37,12 @@
         }
         .card-shadow:hover {
             box-shadow: 0 10px 15px -3px rgba(230, 194, 0, 0.2), 0 4px 6px -2px rgba(230, 194, 0, 0.1);
+        }
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -57,8 +60,8 @@
                         <a href="index.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">首页</a>
                         <a href="efficiency.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">七印</a>
                         <a href="flashnote.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">flash Memo</a>
-                        <a href="slate.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">Slate</a>
-                        <a href="impact.html" class="px-3 py-2 text-sm font-medium" style="color: #E6C200;">信息站</a>
+                        <a href="slate.html" class="px-3 py-2 text-sm font-medium" style="color: #E6C200;">Slate</a>
+                        <a href="impact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">信息站</a>
                         <a href="knowledge-base.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">知识库</a>
                         <a href="about.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">关于</a>
                         <a href="contact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">联系</a>
@@ -79,8 +82,8 @@
                 <a href="index.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">首页</a>
                 <a href="efficiency.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">七印</a>
                 <a href="flashnote.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">flash Memo</a>
-                <a href="slate.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">Slate</a>
-                <a href="impact.html" class="text-gray-300 block px-3 py-2 text-base font-medium border-l-4 border-transparent" style="color: #E6C200; border-left-color: #E6C200;">信息站</a>
+                <a href="slate.html" class="text-gray-300 block px-3 py-2 text-base font-medium border-l-4 border-transparent" style="color: #E6C200; border-left-color: #E6C200;">Slate</a>
+                <a href="impact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">信息站</a>
                 <a href="knowledge-base.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">知识库</a>
                 <a href="about.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">关于</a>
                 <a href="contact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">联系</a>
@@ -92,113 +95,181 @@
     <section class="gradient-bg text-white py-20 px-4 pt-32">
         <div class="max-w-6xl mx-auto text-center">
             <div class="mb-8">
-                <i class="fas fa-search text-6xl mb-6 opacity-90" style="color: #E6C200;"></i>
+                <img src="images/slate-icon.png" alt="Slate Logo" class="w-24 h-24 mx-auto mb-6 opacity-90 rounded-lg">
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">助残信息站</h1>
-            <h2 class="text-2xl md:text-3xl mb-8" style="color: #E6C200;">Info Hub</h2>
-            <p class="text-xl md:text-2xl mb-12 text-gray-200">减少信息差，让资源触手可及。</p>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Slate</h1>
+            <h2 class="text-2xl md:text-3xl mb-8" style="color: #E6C200;">AI增强笔记应用</h2>
+            <p class="text-xl md:text-2xl mb-12 text-gray-200">强大、智能、安全的下一代笔记管理体验</p>
             
             <div class="backdrop-blur-sm rounded-xl p-8 max-w-4xl mx-auto" style="background: rgba(230, 194, 0, 0.1); border: 1px solid rgba(230, 194, 0, 0.3);">
-                <h3 class="text-2xl font-bold mb-4" style="color: #E6C200;">核心价值</h3>
+                <h3 class="text-2xl font-bold mb-4" style="color: #E6C200;">产品愿景</h3>
                 <p class="text-lg text-gray-100 leading-relaxed">
-                    把分散在各处的政策信息、服务资源、实用工具整合到一个地方，
-                    让每个人都能快速找到需要的信息，不再为"不知道去哪里找"而困扰。
+                    Slate致力于为用户提供强大、智能、安全的笔记管理体验！
+                    结合AI技术，让知识管理更高效，让创作过程更流畅。
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Information Categories -->
+    <!-- Core Features -->
     <section class="py-20 px-4 gradient-bg-section">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gradient">信息分类</h2>
+            <h2 class="text-4xl font-bold text-center mb-16 text-gradient">核心功能模块</h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Category 1 -->
-                <div class="info-card gradient-card p-8 rounded-xl text-center card-shadow">
-                    <div class="text-5xl mb-6 text-gradient">
-                        <i class="fas fa-file-text"></i>
+                <!-- 核心笔记功能 -->
+                <div class="info-card gradient-card p-8 rounded-xl card-shadow feature-card">
+                    <div class="text-5xl mb-6 text-gradient feature-icon">
+                        <i class="fas fa-edit"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gradient">政策汇总</h3>
-                    <p class="text-gray-200 mb-6">各地残疾人扶持政策、补贴申请、证件办理流程</p>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">📝 核心笔记功能</h3>
+                    <ul class="text-gray-200 space-y-2 text-sm">
+                        <li>• 富文本编辑器 - 支持格式化文本、标题、列表、表格</li>
+                        <li>• 实时协作 - 多人同时编辑文档</li>
+                        <li>• 文档组织 - 层级文件夹管理，工作空间划分</li>
+                        <li>• 模板系统 - 内置笔记模板，快速创建文档</li>
+                        <li>• 全文搜索 - 快速查找文档内容</li>
+                    </ul>
                 </div>
 
-                <!-- Category 2 -->
-                <div class="info-card gradient-card p-8 rounded-xl text-center card-shadow">
-                    <div class="text-5xl mb-6 text-gradient">
-                        <i class="fas fa-map-marker-alt"></i>
+                <!-- AI增强功能 -->
+                <div class="info-card gradient-card p-8 rounded-xl card-shadow feature-card">
+                    <div class="text-5xl mb-6 text-gradient feature-icon">
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gradient">服务机构</h3>
-                    <p class="text-gray-200 mb-6">康复中心、培训机构、就业服务点地址电话</p>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">🤖 AI增强功能</h3>
+                    <ul class="text-gray-200 space-y-2 text-sm">
+                        <li>• AI写作助手 - 自动补全、改写、润色文本</li>
+                        <li>• 智能总结 - 自动提取文档关键点</li>
+                        <li>• 内容生成 - 根据提示生成文章、大纲</li>
+                        <li>• 语言翻译 - 多语言翻译支持</li>
+                        <li>• 文档分析 - 智能分析文档结构和内容</li>
+                    </ul>
                 </div>
 
-                <!-- Category 3 -->
-                <div class="info-card gradient-card p-8 rounded-xl text-center card-shadow">
-                    <div class="text-5xl mb-6 text-gradient">
-                        <i class="fas fa-tools"></i>
+                <!-- 数据管理功能 -->
+                <div class="info-card gradient-card p-8 rounded-xl card-shadow feature-card">
+                    <div class="text-5xl mb-6 text-gradient feature-icon">
+                        <i class="fas fa-database"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gradient">实用工具</h3>
-                    <p class="text-gray-200 mb-6">辅助器具购买渠道、价格对比、使用教程</p>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">📊 数据管理功能</h3>
+                    <ul class="text-gray-200 space-y-2 text-sm">
+                        <li>• 数据库视图 - 表格、看板、日历等多种视图</li>
+                        <li>• 自定义字段 - 支持文本、数字、日期、选择等字段类型</li>
+                        <li>• 数据筛选 - 按条件筛选和排序数据</li>
+                        <li>• 关系链接 - 建立文档间的关联关系</li>
+                        <li>• 公式计算 - 支持复杂的数据计算</li>
+                    </ul>
+                </div>
+
+                <!-- 认证与安全 -->
+                <div class="info-card gradient-card p-8 rounded-xl card-shadow feature-card">
+                    <div class="text-5xl mb-6 text-gradient feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">🔐 认证与安全</h3>
+                    <ul class="text-gray-200 space-y-2 text-sm">
+                        <li>• 邮箱注册登录 - 安全的用户认证系统</li>
+                        <li>• 访客模式 - 无需注册即可体验</li>
+                        <li>• 数据加密 - 用户数据安全存储</li>
+                        <li>• 权限管理 - 文档访问权限控制</li>
+                        <li>• 会话管理 - 安全的登录状态管理</li>
+                    </ul>
+                </div>
+
+                <!-- 界面与体验 -->
+                <div class="info-card gradient-card p-8 rounded-xl card-shadow feature-card">
+                    <div class="text-5xl mb-6 text-gradient feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">🎨 界面与体验</h3>
+                    <ul class="text-gray-200 space-y-2 text-sm">
+                        <li>• 现代化UI - 简洁美观的用户界面</li>
+                        <li>• 深色/浅色模式 - 护眼的主题切换</li>
+                        <li>• 响应式设计 - 适配不同屏幕尺寸</li>
+                        <li>• 快捷键支持 - 提高操作效率</li>
+                        <li>• 多语言支持 - 支持多种界面语言</li>
+                    </ul>
+                </div>
+
+                <!-- 跨平台支持 -->
+                <div class="info-card gradient-card p-8 rounded-xl card-shadow feature-card">
+                    <div class="text-5xl mb-6 text-gradient feature-icon">
+                        <i class="fas fa-devices"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">📱 跨平台支持</h3>
+                    <ul class="text-gray-200 space-y-2 text-sm">
+                        <li>• 桌面应用 - Windows、macOS、Linux</li>
+                        <li>• 移动应用 - iOS、Android (开发中)</li>
+                        <li>• Web版本 - 浏览器直接访问</li>
+                        <li>• 数据同步 - 跨设备数据同步</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
+    <!-- Developer Features -->
     <section class="py-20 px-4 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gradient">开发者友好</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 bg-gray-900 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                    <i class="fas fa-code text-4xl mb-4" style="color: #E6C200;"></i>
+                    <h3 class="text-xl font-bold mb-4" style="color: #E6C200;">🔧 开发者功能</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li>• 插件系统 - 支持第三方插件扩展</li>
+                        <li>• API接口 - 开放的数据接口</li>
+                        <li>• 自定义主题 - 个性化界面定制</li>
+                        <li>• 数据导入导出 - 支持多种格式转换</li>
+                        <li>• 离线工作 - 无网络环境下正常使用</li>
+                    </ul>
+                </div>
+
+                <div class="p-8 bg-gray-900 rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
+                    <i class="fas fa-star text-4xl mb-4" style="color: #E6C200;"></i>
+                    <h3 class="text-xl font-bold mb-4" style="color: #E6C200;">🎯 特色亮点</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li>• 本地优先 - 数据存储在本地，保护隐私</li>
+                        <li>• 开源基础 - 基于AppFlowy开源项目</li>
+                        <li>• AI集成 - 深度集成AI能力提升效率</li>
+                        <li>• 高性能 - 流畅的编辑体验</li>
+                        <li>• 可扩展 - 模块化架构便于功能扩展</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Advantages -->
+    <section class="py-20 px-4 gradient-bg-section">
         <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-16 text-gradient">信息整合，一站搞定</h2>
+            <h2 class="text-4xl font-bold mb-16 text-gradient">为什么选择Slate</h2>
             
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="flex flex-col items-center">
                     <div class="w-20 h-20 rounded-full flex items-center justify-center text-black text-2xl font-bold mb-6" style="background: linear-gradient(135deg, #E6C200, #CC9500);">
-                        1
+                        <i class="fas fa-brain"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4" style="color: #E6C200;">收集整理</h3>
-                    <p class="text-gray-300">从各个官网、机构收集分散的信息</p>
+                    <h3 class="text-xl font-bold mb-4" style="color: #E6C200;">智能AI助手</h3>
+                    <p class="text-gray-300">深度集成AI技术，让笔记创作更高效，内容整理更智能</p>
                 </div>
 
                 <div class="flex flex-col items-center">
                     <div class="w-20 h-20 rounded-full flex items-center justify-center text-black text-2xl font-bold mb-6" style="background: linear-gradient(135deg, #E6C200, #CC9500);">
-                        2
+                        <i class="fas fa-lock"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4" style="color: #E6C200;">分类整合</h3>
-                    <p class="text-gray-300">按需求分类，用简单的话说清楚</p>
+                    <h3 class="text-xl font-bold mb-4" style="color: #E6C200;">隐私保护</h3>
+                    <p class="text-gray-300">本地优先的数据存储策略，您的数据始终在您的控制之下</p>
                 </div>
 
                 <div class="flex flex-col items-center">
                     <div class="w-20 h-20 rounded-full flex items-center justify-center text-black text-2xl font-bold mb-6" style="background: linear-gradient(135deg, #E6C200, #CC9500);">
-                        3
+                        <i class="fas fa-expand-arrows-alt"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4" style="color: #E6C200;">快速查找</h3>
-                    <p class="text-gray-300">需要什么信息，直接搜索就能找到</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="py-20 px-4 bg-gray-900">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-16 text-gradient">为什么选择我们</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-6 bg-black rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
-                    <i class="fas fa-clock text-4xl mb-4" style="color: #E6C200;"></i>
-                    <h3 class="text-xl font-bold mb-4" style="color: #E6C200;">省时间</h3>
-                    <p class="text-gray-300">不用到处找信息，一个地方就够了</p>
-                </div>
-
-                <div class="p-6 bg-black rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
-                    <i class="fas fa-check-circle text-4xl mb-4" style="color: #E6C200;"></i>
-                    <h3 class="text-xl font-bold mb-4" style="color: #E6C200;">靠谱</h3>
-                    <p class="text-gray-300">信息来源官方，定期更新，不会过时</p>
-                </div>
-
-                <div class="p-6 bg-black rounded-xl" style="border: 2px solid rgba(230, 194, 0, 0.5);">
-                    <i class="fas fa-user-friendly text-4xl mb-4" style="color: #E6C200;"></i>
-                    <h3 class="text-xl font-bold mb-4" style="color: #E6C200;">好懂</h3>
-                    <p class="text-gray-300">没有官话套话，用人话说清楚</p>
+                    <h3 class="text-xl font-bold mb-4" style="color: #E6C200;">无限扩展</h3>
+                    <p class="text-gray-300">模块化架构设计，支持插件扩展，满足个性化需求</p>
                 </div>
             </div>
         </div>
@@ -207,16 +278,16 @@
     <!-- Current Status -->
     <section class="py-20 px-4 bg-black">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-8 text-gradient">目前进展</h2>
+            <h2 class="text-4xl font-bold mb-8 text-gradient">开发进展</h2>
             <div class="bg-gray-900 rounded-2xl p-12 shadow-lg" style="border: 2px solid rgba(230, 194, 0, 0.5);">
-                <i class="fas fa-hammer text-6xl mb-6" style="color: #E6C200;"></i>
-                <h3 class="text-3xl font-bold mb-4" style="color: #E6C200;">正在建设中</h3>
+                <i class="fas fa-rocket text-6xl mb-6" style="color: #E6C200;"></i>
+                <h3 class="text-3xl font-bold mb-4" style="color: #E6C200;">积极开发中</h3>
                 <p class="text-lg text-gray-300 mb-8">
-                    我们正在收集整理各地的政策信息和服务资源，
-                    力争做到信息准确、分类清晰、查找方便。
+                    Slate正在紧锣密鼓的开发中，我们致力于打造最优秀的AI增强笔记应用。
+                    核心功能已基本完成，AI功能正在优化调试中。
                 </p>
                 <div class="text-sm text-gray-400">
-                    <p>预计上线时间：2025年下半年</p>
+                    <p>预计发布时间：2025年第二季度</p>
                 </div>
             </div>
         </div>
@@ -225,15 +296,15 @@
     <!-- Contact CTA -->
     <section class="py-20 px-4 gradient-bg text-white">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-8">有信息或建议？</h2>
-            <p class="text-xl mb-12 text-gray-200">如果您有相关的政策信息、服务资源或改进建议，欢迎联系我们</p>
+            <h2 class="text-4xl font-bold mb-8">体验Slate</h2>
+            <p class="text-xl mb-12 text-gray-200">想要抢先体验或了解更多产品信息？欢迎联系我们</p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="contact.html" class="text-black px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 gold-glow" style="background: linear-gradient(135deg, #E6C200, #CC9500);">
-                    <i class="fas fa-envelope mr-2"></i>联系我们
+                    <i class="fas fa-envelope mr-2"></i>申请体验
                 </a>
                 <a href="contact.html" class="border-2 px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105" style="border-color: #E6C200; color: #E6C200;" onmouseover="this.style.background='#E6C200'; this.style.color='black';" onmouseout="this.style.background='transparent'; this.style.color='#E6C200';">
-                    <i class="fas fa-lightbulb mr-2"></i>提供建议
+                    <i class="fas fa-info-circle mr-2"></i>了解更多
                 </a>
             </div>
         </div>
@@ -316,4 +387,4 @@
         }
     </script>
 </body>
-</html> 
+</html>
