@@ -85,17 +85,30 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">首页</a>
-                        <a href="efficiency.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">七印</a>
-                        <a href="flashnote.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">flash Memo</a>
-                        <a href="slate.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">Slate</a>
-                        <a href="knowledge-base.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">知识库</a>
-                        <a href="about.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">关于</a>
-                        <a href="contact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">联系</a>
+                        <a href="#home" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'" data-zh="首页" data-en="Home">首页</a>
+                        <a href="efficiency.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'" data-zh="七印" data-en="Qiyin">七印</a>
+                        <a href="flashnote.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'" data-zh="flash Memo" data-en="flash Memo">flash Memo</a>
+                        <a href="slate.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'" data-zh="Slate" data-en="Slate">Slate</a>
+                        <a href="knowledge-base.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'" data-zh="知识库" data-en="Knowledge">知识库</a>
+                        <a href="about.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'" data-zh="关于" data-en="About">关于</a>
+                        <a href="contact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'" data-zh="联系" data-en="Contact">联系</a>
                     </div>
                 </div>
+                <!-- Language Toggle -->
+                <div class="hidden md:flex items-center ml-4">
+                    <div class="language-toggle flex items-center bg-gray-800/50 rounded-full p-1" style="border: 1px solid rgba(230, 194, 0, 0.3);">
+                        <button id="lang-zh" class="lang-btn active px-3 py-1 rounded-full text-sm font-medium transition-all" style="color: #E6C200; background: rgba(230, 194, 0, 0.2);">中</button>
+                        <button id="lang-en" class="lang-btn px-3 py-1 rounded-full text-sm font-medium text-gray-400 transition-all hover:text-gray-200">EN</button>
+                    </div>
+                </div>
+                
                 <!-- Mobile menu button -->
-                <div class="md:hidden">
+                <div class="md:hidden flex items-center">
+                    <!-- Mobile Language Toggle -->
+                    <div class="language-toggle flex items-center bg-gray-800/50 rounded-full p-1 mr-2" style="border: 1px solid rgba(230, 194, 0, 0.3);">
+                        <button id="mobile-lang-zh" class="lang-btn active px-2 py-1 rounded-full text-xs font-medium transition-all" style="color: #E6C200; background: rgba(230, 194, 0, 0.2);">中</button>
+                        <button id="mobile-lang-en" class="lang-btn px-2 py-1 rounded-full text-xs font-medium text-gray-400 transition-all hover:text-gray-200">EN</button>
+                    </div>
                     <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500 p-2" style="color: #E6C200;">
                         <span class="sr-only">Open main menu</span>
                         <i id="menu-icon" class="fas fa-bars text-lg"></i>
@@ -107,13 +120,13 @@
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 backdrop-blur-sm" style="border-top: 1px solid rgba(230, 194, 0, 0.2);">
-                <a href="#home" class="text-gray-300 block px-3 py-2 text-base font-medium border-l-4 border-transparent" style="color: #E6C200; border-left-color: #E6C200;">首页</a>
-                <a href="efficiency.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">七印</a>
-                <a href="flashnote.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">flash Memo</a>
-                <a href="slate.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">Slate</a>
-                <a href="knowledge-base.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">知识库</a>
-                <a href="about.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">关于</a>
-                <a href="contact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500">联系</a>
+                <a href="#home" class="text-gray-300 block px-3 py-2 text-base font-medium border-l-4 border-transparent" style="color: #E6C200; border-left-color: #E6C200;" data-zh="首页" data-en="Home">首页</a>
+                <a href="efficiency.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500" data-zh="七印" data-en="Qiyin">七印</a>
+                <a href="flashnote.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500" data-zh="flash Memo" data-en="flash Memo">flash Memo</a>
+                <a href="slate.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500" data-zh="Slate" data-en="Slate">Slate</a>
+                <a href="knowledge-base.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500" data-zh="知识库" data-en="Knowledge">知识库</a>
+                <a href="about.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500" data-zh="关于" data-en="About">关于</a>
+                <a href="contact.html" class="text-gray-300 hover:text-gray-100 block px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-yellow-500" data-zh="联系" data-en="Contact">联系</a>
             </div>
         </div>
     </nav>
@@ -125,17 +138,17 @@
                 <img src="images/lumirain-logo.png" alt="Lumirain Studio Logo" class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-2xl shadow-lg" style="border: 2px solid rgba(230, 194, 0, 0.3);" loading="lazy">
             </div>
             <h1 class="text-3xl sm:text-4xl md:text-7xl font-bold mb-6">
-                Hallo<br>
+                <span data-zh="Hallo" data-en="Hello">Hallo</span><br>
                 <span class="text-2xl sm:text-3xl md:text-5xl">Lumirain Studio</span><br>
-                <span class="text-xl sm:text-2xl md:text-3xl text-gradient">炬霖工作室</span>
+                <span class="text-xl sm:text-2xl md:text-3xl text-gradient" data-zh="炬霖工作室" data-en="Torch & Rain Studio">炬霖工作室</span>
             </h1>
-            <p class="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 text-gray-200">Ignite ideas, nourish growth.</p>
+            <p class="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 text-gray-200" data-zh="点燃灵感，润泽成长。" data-en="Ignite ideas, nourish growth.">点燃灵感，润泽成长。</p>
             
             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4 sm:px-0">
-                <a href="https://apps.apple.com/us/app/%E4%B8%83%E5%8D%B0/id6670341351" target="_blank" class="text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all transform hover:scale-105 gold-glow text-center" style="background: linear-gradient(135deg, #E6C200, #CC9500);">
+                <a href="https://apps.apple.com/us/app/%E4%B8%83%E5%8D%B0/id6670341351" target="_blank" class="text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all transform hover:scale-105 gold-glow text-center" style="background: linear-gradient(135deg, #E6C200, #CC9500);" data-zh="立即下载七印" data-en="Download Qiyin Now">
                     立即下载七印
                 </a>
-                <a href="contact.html" class="border-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all transform hover:scale-105 text-center" style="border-color: #E6C200; color: #E6C200;" onmouseover="this.style.background='#E6C200'; this.style.color='black';" onmouseout="this.style.background='transparent'; this.style.color='#E6C200';">
+                <a href="contact.html" class="border-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all transform hover:scale-105 text-center" style="border-color: #E6C200; color: #E6C200;" onmouseover="this.style.background='#E6C200'; this.style.color='black';" onmouseout="this.style.background='transparent'; this.style.color='#E6C200';" data-zh="联系我们" data-en="Contact Us">
                     联系我们
                 </a>
             </div>
@@ -150,30 +163,30 @@
     <!-- Pillars Section -->
     <section class="py-20 px-4 gradient-bg-section">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-gradient fade-in-up">四大产品简介</h2>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-gradient fade-in-up" data-zh="四大产品简介" data-en="Our Four Products">四大产品简介</h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <!-- Efficiency Pillar -->
                 <div class="gradient-card card-hover p-6 md:p-8 rounded-2xl">
                     <div class="flex items-center mb-4 md:mb-6">
                         <img src="images/qiyin-icon.png" alt="七印图标" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mr-3 md:mr-4 shadow-sm" loading="lazy">
-                        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gradient">效率 · Efficiency</h3>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gradient" data-zh="效率 · Efficiency" data-en="Efficiency">效率 · Efficiency</h3>
                     </div>
-                    <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-4">
+                    <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-4" data-zh="一分钟建好图书馆。七印图书管理器，用 OCR + 云同步，让碎片书单秒变数字藏书。" data-en="Build your library in one minute. Qiyin Book Manager uses OCR + cloud sync to transform scattered book lists into digital collections instantly.">
                         一分钟建好图书馆。七印图书管理器，用 OCR + 云同步，让碎片书单秒变数字藏书。
                     </p>
                     
                     <!-- Platform Support Badges -->
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="platform-badge-small inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 text-yellow-300 border border-yellow-400/30 pulse-glow">
-                            <i class="fab fa-apple mr-1 text-xs"></i>macOS 本地管理
+                            <i class="fab fa-apple mr-1 text-xs"></i><span data-zh="macOS 本地管理" data-en="macOS Local Manager">macOS 本地管理</span>
                         </span>
                         <span class="platform-badge-small inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-400/20 to-blue-600/20 text-blue-300 border border-blue-400/30 pulse-glow">
-                            <i class="fas fa-mobile-alt mr-1 text-xs"></i>iOS 移动库
+                            <i class="fas fa-mobile-alt mr-1 text-xs"></i><span data-zh="iOS 移动库" data-en="iOS Mobile Library">iOS 移动库</span>
                         </span>
                     </div>
                     
-                    <a href="efficiency.html" class="inline-block mt-2 md:mt-4 font-semibold transition-all duration-300 text-gradient">
+                    <a href="efficiency.html" class="inline-block mt-2 md:mt-4 font-semibold transition-all duration-300 text-gradient" data-zh="了解更多 →" data-en="Learn More →">
                         了解更多 →
                     </a>
                 </div>
@@ -183,9 +196,9 @@
                 <div class="gradient-card card-hover p-6 md:p-8 rounded-2xl">
                     <div class="flex items-center mb-4 md:mb-6">
                         <img src="images/flashnote-icon.png" alt="flash Memo图标" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mr-3 md:mr-4 shadow-sm" loading="lazy">
-                        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gradient">效率 · Productivity</h3>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gradient" data-zh="效率 · Productivity" data-en="Productivity">效率 · Productivity</h3>
                     </div>
-                    <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-4">
+                    <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-4" data-zh="秒速记录，AI智能解析。flash Memo（秒记）集成语音识别和AI任务分析，让任务管理更智能高效。" data-en="Lightning-fast recording with AI-powered analysis. flash Memo integrates voice recognition and AI task parsing for smarter, more efficient task management.">
                         秒速记录，AI智能解析。flash Memo（秒记）集成语音识别和AI任务分析，让任务管理更智能高效。
                     </p>
                     
@@ -198,7 +211,7 @@
                     <!-- Platform Support Badge -->
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="platform-badge-small inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-400/20 to-blue-600/20 text-blue-300 border border-blue-400/30 pulse-glow">
-                            <i class="fas fa-mobile-alt mr-1 text-xs"></i>iOS 原生应用
+                            <i class="fas fa-mobile-alt mr-1 text-xs"></i><span data-zh="iOS 原生应用" data-en="iOS Native App">iOS 原生应用</span>
                         </span>
                     </div>
                     
@@ -211,9 +224,9 @@
                 <div class="gradient-card card-hover p-6 md:p-8 rounded-2xl">
                     <div class="flex items-center mb-4 md:mb-6">
                         <i class="fas fa-brain text-2xl sm:text-3xl mr-3 md:mr-4 text-gradient"></i>
-                        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gradient">知识 · Knowledge</h3>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gradient" data-zh="知识 · Knowledge" data-en="Knowledge">知识 · Knowledge</h3>
                     </div>
-                    <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-4">
+                    <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-4" data-zh="现代化的个人知识管理平台，集文章管理、智能搜索、AI辅助写作于一体，让知识触手可及。" data-en="Modern personal knowledge management platform that integrates article management, intelligent search, and AI-assisted writing to make knowledge accessible at your fingertips.">
                         现代化的个人知识管理平台，集文章管理、智能搜索、AI辅助写作于一体，让知识触手可及。
                     </p>
                     
@@ -226,7 +239,7 @@
                     <!-- Platform Support Badge -->
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="platform-badge-small inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-purple-400/20 to-purple-600/20 text-purple-300 border border-purple-400/30 pulse-glow">
-                            <i class="fas fa-globe mr-1 text-xs"></i>Web 平台
+                            <i class="fas fa-globe mr-1 text-xs"></i><span data-zh="Web 平台" data-en="Web Platform">Web 平台</span>
                         </span>
                     </div>
                     
@@ -239,9 +252,9 @@
                 <div class="gradient-card card-hover p-6 md:p-8 rounded-2xl">
                     <div class="flex items-center mb-4 md:mb-6">
                         <img src="images/slate-icon.png" alt="Slate图标" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mr-3 md:mr-4 shadow-sm" loading="lazy">
-                        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gradient">笔记 · Slate</h3>
+                        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gradient" data-zh="笔记 · Slate" data-en="Notes · Slate">笔记 · Slate</h3>
                     </div>
-                    <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-4">
+                    <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-4" data-zh="AI增强笔记应用，强大、智能、安全的下一代笔记管理体验。集成AI技术，让知识管理更高效。" data-en="AI-enhanced note-taking app offering powerful, intelligent, and secure next-generation note management. Integrated with AI technology for more efficient knowledge management.">
                         AI增强笔记应用，强大、智能、安全的下一代笔记管理体验。集成AI技术，让知识管理更高效。
                     </p>
                     
@@ -254,7 +267,7 @@
                     <!-- Platform Support Badge -->
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="platform-badge-small inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-green-400/20 to-green-600/20 text-green-300 border border-green-400/30 pulse-glow">
-                            <i class="fas fa-laptop mr-1 text-xs"></i>跨平台应用
+                            <i class="fas fa-laptop mr-1 text-xs"></i><span data-zh="跨平台应用" data-en="Cross-platform App">跨平台应用</span>
                         </span>
                     </div>
                     
@@ -269,20 +282,20 @@
     <!-- Mission Statement -->
     <section class="py-20 px-4 gradient-bg text-white">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-xl sm:text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-gradient">"为什么我们存在？"三行宣言</h2>
+            <h2 class="text-xl sm:text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-gradient" data-zh="\u201c为什么我们存在？\u201d三行宣言" data-en="\u201cWhy do we exist?\u201d Our Three-Line Manifesto">“为什么我们存在？”三行宣言</h2>
             
             <div class="space-y-4 md:space-y-8">
                 <div class="flex items-center justify-center gradient-card p-4 md:p-6 rounded-xl">
                     <i class="fas fa-fire text-xl md:text-2xl mr-3 md:mr-4 text-gradient flex-shrink-0"></i>
-                    <p class="text-base sm:text-lg md:text-xl text-gray-100">把日常动作压缩到 1 秒内，这是火，点燃效率之光。</p>
+                    <p class="text-base sm:text-lg md:text-xl text-gray-100" data-zh="把日常动作压缩到 1 秒内，这是火，点燃效率之光。" data-en="Compress daily actions to within 1 second. This is fire, igniting the light of efficiency.">把日常动作压缩到 1 秒内，这是火，点燃效率之光。</p>
                 </div>
                 <div class="flex items-center justify-center gradient-card p-4 md:p-6 rounded-xl">
                     <i class="fas fa-cloud-rain text-xl md:text-2xl mr-3 md:mr-4 text-gradient flex-shrink-0"></i>
-                    <p class="text-base sm:text-lg md:text-xl text-gray-100">让所有人都能轻松点击同一个按钮，这是雨，滋养普惠之心。</p>
+                    <p class="text-base sm:text-lg md:text-xl text-gray-100" data-zh="让所有人都能轻松点击同一个按钮，这是雨，滋养普惠之心。" data-en="Let everyone easily click the same button. This is rain, nurturing the heart of inclusivity.">让所有人都能轻松点击同一个按钮，这是雨，滋养普惠之心。</p>
                 </div>
                 <div class="flex items-center justify-center gradient-card p-4 md:p-6 rounded-xl" style="border-color: rgba(230, 194, 0, 0.8);">
                     <i class="fas fa-yin-yang text-xl md:text-2xl mr-3 md:mr-4 text-gradient flex-shrink-0"></i>
-                    <p class="text-base sm:text-lg md:text-xl font-semibold text-gradient">火与雨同在，方能成就 Lumirain。</p>
+                    <p class="text-base sm:text-lg md:text-xl font-semibold text-gradient" data-zh="火与雨同在，方能成就 Lumirain。" data-en="Fire and rain together, this is how Lumirain is achieved.">火与雨同在，方能成就 Lumirain。</p>
                 </div>
             </div>
         </div>
@@ -306,7 +319,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4" style="color: #E6C200;">法律</h4>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;" data-zh="法律" data-en="Legal">法律</h4>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="flashnote-privacy.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">flash Memo 隐私政策</a></li>
                         <li><a href="flashnote-terms.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">flash Memo 使用条款</a></li>
@@ -315,14 +328,14 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4" style="color: #E6C200;">支持</h4>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;" data-zh="支持" data-en="Support">支持</h4>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="about.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">关于我们</a></li>
                         <li><a href="contact.html" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#9ca3af'">联系我们</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4" style="color: #E6C200;">技术栈</h4>
+                    <h4 class="font-semibold mb-4" style="color: #E6C200;" data-zh="技术栈" data-en="Tech Stack">技术栈</h4>
                     <p class="text-gray-400 text-sm">Flutter · Dart · Hive Database<br>AI Parser · Swift · TailwindCSS</p>
                 </div>
             </div>
@@ -377,6 +390,46 @@
                 });
             });
         }
+
+        // Language Toggle Functionality
+        const currentLang = localStorage.getItem('language') || 'zh';
+        
+        function switchLanguage(lang) {
+            // Update localStorage
+            localStorage.setItem('language', lang);
+            
+            // Update all elements with language attributes
+            document.querySelectorAll('[data-zh][data-en]').forEach(element => {
+                if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                } else {
+                    element.textContent = element.getAttribute('data-zh');
+                }
+            });
+            
+            // Update language toggle buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.color = '#9ca3af';
+                btn.style.background = 'transparent';
+            });
+            
+            // Activate current language buttons
+            document.querySelectorAll(`#lang-${lang}, #mobile-lang-${lang}`).forEach(btn => {
+                btn.classList.add('active');
+                btn.style.color = '#E6C200';
+                btn.style.background = 'rgba(230, 194, 0, 0.2)';
+            });
+        }
+        
+        // Initialize language on page load
+        switchLanguage(currentLang);
+        
+        // Add event listeners for language buttons
+        document.getElementById('lang-zh').addEventListener('click', () => switchLanguage('zh'));
+        document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('mobile-lang-zh').addEventListener('click', () => switchLanguage('zh'));
+        document.getElementById('mobile-lang-en').addEventListener('click', () => switchLanguage('en'));
     </script>
 </body>
 </html>
