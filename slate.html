@@ -399,6 +399,46 @@
                 });
             });
         }
+
+        // Language Toggle Functionality
+        const currentLang = localStorage.getItem('language') || 'zh';
+        
+        function switchLanguage(lang) {
+            // Update localStorage
+            localStorage.setItem('language', lang);
+            
+            // Update all elements with language attributes
+            document.querySelectorAll('[data-zh][data-en]').forEach(element => {
+                if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                } else {
+                    element.textContent = element.getAttribute('data-zh');
+                }
+            });
+            
+            // Update language toggle buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.color = '#9ca3af';
+                btn.style.background = 'transparent';
+            });
+            
+            // Activate current language buttons
+            document.querySelectorAll(`#lang-${lang}, #mobile-lang-${lang}`).forEach(btn => {
+                btn.classList.add('active');
+                btn.style.color = '#E6C200';
+                btn.style.background = 'rgba(230, 194, 0, 0.2)';
+            });
+        }
+        
+        // Initialize language on page load
+        switchLanguage(currentLang);
+        
+        // Add event listeners for language buttons
+        document.getElementById('lang-zh').addEventListener('click', () => switchLanguage('zh'));
+        document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('mobile-lang-zh').addEventListener('click', () => switchLanguage('zh'));
+        document.getElementById('mobile-lang-en').addEventListener('click', () => switchLanguage('en'));
     </script>
 </body>
 </html>

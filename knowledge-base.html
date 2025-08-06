@@ -60,7 +60,20 @@
                         <a href="contact.html" class="text-gray-300 px-3 py-2 text-sm font-medium transition-colors" onmouseover="this.style.color='#E6C200'" onmouseout="this.style.color='#d1d5db'">联系</a>
                     </div>
                 </div>
-                <div class="md:hidden">
+                <!-- Language Toggle -->
+                <div class="hidden md:flex items-center ml-4">
+                    <div class="language-toggle flex items-center bg-gray-800/50 rounded-full p-1" style="border: 1px solid rgba(230, 194, 0, 0.3);">
+                        <button id="lang-zh" class="lang-btn active px-3 py-1 rounded-full text-sm font-medium transition-all" style="color: #E6C200; background: rgba(230, 194, 0, 0.2);">中</button>
+                        <button id="lang-en" class="lang-btn px-3 py-1 rounded-full text-sm font-medium text-gray-400 transition-all hover:text-gray-200">EN</button>
+                    </div>
+                </div>
+                
+                <div class="md:hidden flex items-center">
+                    <!-- Mobile Language Toggle -->
+                    <div class="language-toggle flex items-center bg-gray-800/50 rounded-full p-1 mr-2" style="border: 1px solid rgba(230, 194, 0, 0.3);">
+                        <button id="mobile-lang-zh" class="lang-btn active px-2 py-1 rounded-full text-xs font-medium transition-all" style="color: #E6C200; background: rgba(230, 194, 0, 0.2);">中</button>
+                        <button id="mobile-lang-en" class="lang-btn px-2 py-1 rounded-full text-xs font-medium text-gray-400 transition-all hover:text-gray-200">EN</button>
+                    </div>
                     <button id="mobile-menu-button" type="button" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500 p-2" style="color: #E6C200;">
                         <span class="sr-only">Open main menu</span>
                         <i id="menu-icon" class="fas fa-bars text-lg"></i>
@@ -88,16 +101,16 @@
             <div class="mb-8">
                 <i class="fas fa-lightbulb text-6xl mb-6 opacity-90" style="color: #E6C200;"></i>
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">Lumirain知识库</h1>
-            <h2 class="text-2xl md:text-3xl mb-8" style="color: #E6C200;">你的灵感加油站</h2>
-            <p class="text-xl md:text-2xl mb-12 text-gray-200">这里不是产品，而是我的个人知识收藏室。<br>你能在这里获得最新AI资讯、实用技术干货、篮球圈新鲜事，还有更多有趣的内容。</p>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6" data-zh="Lumirain知识库" data-en="Lumirain Knowledge">Lumirain知识库</h1>
+            <h2 class="text-2xl md:text-3xl mb-8" style="color: #E6C200;" data-zh="你的灵感加油站" data-en="Your Inspiration Station">你的灵感加油站</h2>
+            <p class="text-xl md:text-2xl mb-12 text-gray-200" data-zh="这里不是产品，而是我的个人知识收藏室。<br>你能在这里获得最新AI资讯、实用技术干货、篮球圈新鲜事，还有更多有趣的内容。" data-en="This is not a product, but my personal knowledge collection room.<br>You can get the latest AI news, practical tech insights, basketball updates, and much more interesting content here.">这里不是产品，而是我的个人知识收藏室。<br>你能在这里获得最新AI资讯、实用技术干货、篮球圈新鲜事，还有更多有趣的内容。</p>
         </div>
     </section>
 
     <!-- Content Types -->
     <section class="py-20 px-4 gradient-bg-section">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gradient">你能在这里获得什么？</h2>
+            <h2 class="text-4xl font-bold text-center mb-16 text-gradient" data-zh="你能在这里获得什么？" data-en="What Can You Get Here?">你能在这里获得什么？</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- AI资讯 -->
                 <div class="info-card gradient-card p-8 rounded-xl text-center card-shadow">
@@ -236,6 +249,46 @@
                 });
             });
         }
+
+        // Language Toggle Functionality
+        const currentLang = localStorage.getItem('language') || 'zh';
+        
+        function switchLanguage(lang) {
+            // Update localStorage
+            localStorage.setItem('language', lang);
+            
+            // Update all elements with language attributes
+            document.querySelectorAll('[data-zh][data-en]').forEach(element => {
+                if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                } else {
+                    element.textContent = element.getAttribute('data-zh');
+                }
+            });
+            
+            // Update language toggle buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.color = '#9ca3af';
+                btn.style.background = 'transparent';
+            });
+            
+            // Activate current language buttons
+            document.querySelectorAll(`#lang-${lang}, #mobile-lang-${lang}`).forEach(btn => {
+                btn.classList.add('active');
+                btn.style.color = '#E6C200';
+                btn.style.background = 'rgba(230, 194, 0, 0.2)';
+            });
+        }
+        
+        // Initialize language on page load
+        switchLanguage(currentLang);
+        
+        // Add event listeners for language buttons
+        document.getElementById('lang-zh').addEventListener('click', () => switchLanguage('zh'));
+        document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('mobile-lang-zh').addEventListener('click', () => switchLanguage('zh'));
+        document.getElementById('mobile-lang-en').addEventListener('click', () => switchLanguage('en'));
     </script>
 </body>
 </html> 
