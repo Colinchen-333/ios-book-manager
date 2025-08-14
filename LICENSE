@@ -1,0 +1,51 @@
+图书管理器 (Book Manager) - 双重许可证
+
+Copyright (C) 2024-2025 Colin Chen <colin13909007335@outlook.com>
+
+本项目采用双重许可证模式：
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆓 开源许可证 (Open Source License)
+
+本软件在GNU Affero通用公共许可证第3版 (AGPL-3.0) 下发布。
+This software is released under the GNU Affero General Public License v3.0 (AGPL-3.0).
+
+完整许可证文本请参阅：LICENSES/AGPL-3.0.txt
+Full license text: LICENSES/AGPL-3.0.txt
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💼 商业许可证 (Commercial License)
+
+如需在闭源商业产品中使用本软件，可购买商业许可证。
+For use in closed-source commercial products, a commercial license is available.
+
+商业许可证模板：LICENSES/COMMERCIAL.txt
+Commercial license template: LICENSES/COMMERCIAL.txt
+
+咨询联系 (Contact for inquiries)：colin13909007335@outlook.com
+定价说明 (Pricing details)：COMMERCIAL-PRICING.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 许可证选择指南 (License Selection Guide)
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ 使用场景 (Use Case)          │ 推荐许可证 (License)    │ 费用 (Cost)    │
+├─────────────────────────────────────────────────────────────────────┤
+│ 个人/教育使用                │ AGPL-3.0               │ 免费 (Free)     │
+│ Personal/Educational use     │                        │                │
+├─────────────────────────────────────────────────────────────────────┤
+│ 开源项目集成                 │ AGPL-3.0               │ 免费 (Free)     │
+│ Open source project         │                        │                │
+├─────────────────────────────────────────────────────────────────────┤
+│ 闭源商业产品                 │ 商业许可证              │ 付费 (Paid)     │
+│ Closed-source commercial     │ Commercial License     │                │
+├─────────────────────────────────────────────────────────────────────┤
+│ SaaS服务(不开源)            │ 商业许可证              │ 付费 (Paid)     │
+│ SaaS service (not open)     │ Commercial License     │                │
+└─────────────────────────────────────────────────────────────────────┘
+
+如有疑问，请联系：colin13909007335@outlook.com
+For questions, contact: colin13909007335@outlook.com 
